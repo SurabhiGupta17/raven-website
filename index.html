@@ -31,6 +31,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <script>
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
             fontFamily: {
@@ -65,110 +66,290 @@
 
       .grid-dots {
         background-size: 20px 20px;
-        background-image: radial-gradient(circle, #000 1px, transparent 1px);
+        background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
+        opacity: 0.1;
+      }
+
+      .dark .grid-dots {
+        background-image: radial-gradient(circle, #fff 1px, transparent 1px);
+      }
+
+      /* Smooth transitions for dark mode */
+      * {
+        transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
       }
     </style>
   </head>
-  <body class="bg-white text-black min-h-screen">
+  
+  <!-- 
+    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+    ░                                                                                                                                            ░
+    ░   ██████╗  █████╗ ██╗   ██╗███████╗███╗   ██╗    ██████╗  ██████╗ ██████╗  ██████╗ ████████╗██╗ ██████╗███████╗                        ░
+    ░   ██╔══██╗██╔══██╗██║   ██║██╔════╝████╗  ██║    ██╔══██╗██╔═══██╗██╔══██╗██╔═══██╗╚══██╔══╝██║██╔════╝██╔════╝                        ░
+    ░   ██████╔╝███████║██║   ██║█████╗  ██╔██╗ ██║    ██████╔╝██║   ██║██████╔╝██║   ██║   ██║   ██║██║     ███████╗                        ░
+    ░   ██╔══██╗██╔══██║╚██╗ ██╔╝██╔══╝  ██║╚██╗██║    ██╔══██╗██║   ██║██╔══██╗██║   ██║   ██║   ██║██║     ╚════██║                        ░
+    ░   ██║  ██║██║  ██║ ╚████╔╝ ███████╗██║ ╚████║    ██║  ██║╚██████╔╝██████╔╝╚██████╔╝   ██║   ██║╚██████╗███████║                        ░
+    ░   ╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝  ╚══════╝╚═╝  ╚═══╝    ╚═╝  ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝    ╚═╝   ╚═╝ ╚═════╝╚══════╝                        ░
+    ░                                                                                                                                            ░
+    ░                               The open-source home assistant robot that started with lost glasses                                          ░
+    ░                                            Built by Surabhi in 28 days of beautiful chaos                                                 ░
+    ░                                                                                                                                            ░
+    ░         ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+    ░                                                         ░░▓▓▓░░                                                                          ░
+    ░               "First they ignore you,                    ░▓███▓░                           ASCII Ravens:                                  ░
+    ░                then they laugh at you,                   ░▓███▓░           ░░░░░                                                          ░
+    ░                then they fight you,                     ░░▓███▓░░         ░▓▓▓▓▓░          ░░▓▓▓░░       ░░░░░░░░░░░░                       ░
+    ░                then you build a robot                  ░▓▓▓███▓▓▓░       ░▓▓▓▓▓▓▓░        ░▓▓███▓▓░     ░▓▓▓▓▓▓▓▓▓▓▓░                      ░
+    ░                that finds your glasses."              ░▓▓▓▓███▓▓▓▓░     ░▓▓▓▓▓▓▓▓▓░      ░▓▓▓███▓▓▓░   ░▓▓▓▓▓▓▓▓▓▓▓▓▓░                     ░
+    ░                                                       ░▓▓▓▓███▓▓▓▓░    ░▓▓▓▓███▓▓▓▓░    ░▓▓▓▓███▓▓▓▓░ ░▓▓▓▓▓▓███▓▓▓▓▓░                     ░
+    ░                     - Surabhi's First Law            ░▓▓▓▓▓███▓▓▓▓▓░  ░▓▓▓▓▓███▓▓▓▓▓░  ░▓▓▓▓▓███▓▓▓▓▓░░▓▓▓▓▓████▓▓▓▓▓░                     ░
+    ░                                                      ░▓▓▓▓▓███▓▓▓▓▓░  ░▓▓▓▓▓███▓▓▓▓▓░  ░▓▓▓▓▓███▓▓▓▓▓░░▓▓▓▓▓████▓▓▓▓▓░                     ░
+    ░                                                      ░▓▓▓▓▓███▓▓▓▓▓░  ░▓▓▓▓▓███▓▓▓▓▓░  ░▓▓▓▓▓███▓▓▓▓▓░░▓▓▓▓▓████▓▓▓▓▓░                     ░
+    ░                                                       ░▓▓▓▓███▓▓▓▓░    ░▓▓▓▓███▓▓▓▓░    ░▓▓▓▓███▓▓▓▓░ ░▓▓▓▓▓▓███▓▓▓▓▓░                     ░
+    ░                                                        ░▓▓▓███▓▓▓░      ░▓▓▓███▓▓▓░      ░▓▓▓███▓▓▓░   ░▓▓▓▓▓▓▓▓▓▓▓▓▓░                     ░
+    ░                                                         ░▓▓███▓▓░        ░▓▓███▓▓░        ░▓▓███▓▓░     ░▓▓▓▓▓▓▓▓▓▓▓░                      ░
+    ░                                                          ░▓███▓░          ░▓███▓░          ░▓███▓░       ░▓▓▓▓▓░                          ░
+    ░                                                           ░███░            ░███░            ░███░         ░░░░░                           ░
+    ░                                                            ░░░              ░░░              ░░░                                            ░
+    ░                                                                                                                                            ░
+    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+  -->
+
+  <body class="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen transition-colors duration-300">
     <!-- Navigation -->
-    <nav class="fixed w-full px-4 py-3 flex justify-between items-center z-50 bg-white border-b border-gray-900">
+    <nav class="fixed w-full px-4 py-3 flex justify-between items-center z-50 bg-white/90 dark:bg-gray-900/90 border-b border-gray-900 dark:border-gray-100 backdrop-blur-sm">
       <div class="text-xl font-bold tracking-normal">RAVEN</div>
-      <div class="flex gap-6">
-        <a href="#about" class="text-sm hover:underline decoration-4 underline-offset-8">ABOUT</a>
-        <a href="#timeline" class="text-sm hover:underline decoration-4 underline-offset-8">TIMELINE</a>
-        <a href="#specs" class="text-sm hover:underline decoration-4 underline-offset-8">SPECS</a>
-        <a href="#faq" class="text-sm hover:underline decoration-4 underline-offset-8">FAQ</a>
-        <a href="#contact" class="text-sm hover:underline decoration-4 underline-offset-8">CONTACT</a>
+      <div class="flex gap-4 lg:gap-6 items-center">
+        <a href="#problem" class="text-xs lg:text-sm hover:underline decoration-4 underline-offset-8">PROBLEM</a>
+        <a href="#builder" class="text-xs lg:text-sm hover:underline decoration-4 underline-offset-8">BUILDER</a>
+        <a href="#timeline" class="text-xs lg:text-sm hover:underline decoration-4 underline-offset-8">TIMELINE</a>
+        <a href="#specs" class="text-xs lg:text-sm hover:underline decoration-4 underline-offset-8">SPECS</a>
+        <a href="#faq" class="text-xs lg:text-sm hover:underline decoration-4 underline-offset-8">FAQ</a>
+        <a href="#contact" class="text-xs lg:text-sm hover:underline decoration-4 underline-offset-8">CONTACT</a>
+        
+        <!-- Dark Mode Toggle -->
+        <button 
+          id="darkModeToggle" 
+          class="ml-2 p-2 rounded-lg border border-gray-900 dark:border-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          aria-label="Toggle dark mode">
+          <i class="fas fa-moon dark:hidden text-sm"></i>
+          <i class="fas fa-sun hidden dark:inline text-sm"></i>
+        </button>
       </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="h-screen flex flex-col justify-center items-center pt-16 relative overflow-hidden">
-      <div class="grid-dots absolute inset-0 opacity-10"></div>
-      <div class="z-10 px-8 max-w-4xl text-center">
-        <h1 class="text-6xl md:text-8xl font-bold mb-6 leading-none">
+    <header class="min-h-screen flex flex-col justify-center items-center pt-16 relative overflow-hidden">
+      <div class="grid-dots absolute inset-0"></div>
+      <div class="z-10 px-4 lg:px-8 max-w-4xl text-center">
+        <h1 class="text-4xl md:text-6xl lg:text-8xl font-bold mb-6 leading-none">
           RAVEN
         </h1>
-        <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8">
+        <p class="text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-8">
           The open-source home assistant robot that started with lost glasses and evolved into something bigger.
         </p>
-        <div class="flex flex-col md:flex-row gap-4 justify-center">
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="mailto:surabhi.gupta1617@gmail.com" 
-             class="border-2 rounded-xl border-black px-8 py-3 text-sm uppercase tracking-widest inline-block hover:bg-black hover:text-white transition-colors">
+             class="border-2 rounded-xl border-black dark:border-white px-6 lg:px-8 py-3 text-xs lg:text-sm uppercase tracking-widest inline-block hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">
             Email Surabhi
           </a>
           <a href="#" 
-             class="border-2 rounded-xl border-black px-8 py-3 text-sm uppercase tracking-widest inline-block hover:bg-black hover:text-white transition-colors">
+             class="border-2 rounded-xl border-black dark:border-white px-6 lg:px-8 py-3 text-xs lg:text-sm uppercase tracking-widest inline-block hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">
             Join Discord
           </a>
         </div>
       </div>
       
-      <!-- Robot ASCII Art -->
-      <div class="absolute bottom-8 right-8 text-xs opacity-20 hidden md:block">
-        <pre>
-    [O]
-     |
-   __|__
-  |     |
-  |  ●  |
-  |_____|
-     |
-    /|\
-   / | \
-  ●  ●  ●
+      <!-- Raven ASCII Art - Mobile Hidden -->
+      <div class="absolute bottom-4 lg:bottom-8 right-4 lg:right-8 text-xs opacity-20 hidden lg:block">
+        <pre class="leading-tight">
+      ▄▄▄▄▄▄▄
+     ███████████
+    █████████████
+   ███████████████
+  █████████████████
+  █████████████████
+   ███████████████
+    █████████████
+     ███████████
+      ▀▀▀▀▀▀▀
+       ▄███▄
+      ███████
+     █████████
+    ███████████
+   █████████████
+  ███████████████
+  ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+        </pre>
+      </div>
+
+      <!-- Mobile Raven -->
+      <div class="absolute bottom-4 right-4 text-xs opacity-20 lg:hidden">
+        <pre class="leading-tight">
+    ▄▄▄
+   █████
+  ███████
+  ███████
+   █████
+    ▀▀▀
+     █
+    ███
+   █████
+  ███████
+  ▀▀▀▀▀▀▀
         </pre>
       </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="py-24 px-8">
+    <!-- The Problem Section -->
+    <section id="problem" class="py-16 lg:py-24 px-4 lg:px-8 bg-gray-50 dark:bg-gray-800">
       <div class="max-w-6xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-          <div>
-            <h3 class="text-3xl font-bold mb-6">THE PROBLEM</h3>
-            <div class="space-y-4 text-lg">
-              <p>I keep losing my glasses. Like, constantly.</p>
-              <p>At one point, I just wanted a robot that could find them for me. That idea slowly evolved into something bigger - a mobile assistant. Something that could move around and help you with everyday stuff. A companion robot.</p>
+        <div class="text-center mb-12 lg:mb-16">
+          <h2 class="text-4xl lg:text-6xl font-bold mb-8">
+            THE<span class="text-xs align-super"> PROBLEM</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16">
+          <!-- Problem Statement -->
+          <div class="lg:col-span-2">
+            <div class="text-2xl lg:text-4xl font-bold mb-8 leading-tight">
+              "I keep losing my glasses. Like, constantly."
+            </div>
+            <div class="space-y-6 text-base lg:text-lg">
+              <p>
+                At one point, I just wanted a robot that could find them for me. 
+                That idea slowly evolved into something bigger - a mobile assistant. 
+                Something that could move around and help you with everyday stuff.
+              </p>
+              <p class="font-bold">A companion robot.</p>
+              <p>
+                Most home robots are expensive, closed systems with limited customization. 
+                What if we could build something hackable, extensible, and affordable? 
+                A platform for learning and innovation rather than just another product?
+              </p>
             </div>
           </div>
 
+          <!-- ASCII Art Side -->
+          <div class="hidden lg:block">
+            <div class="border-2 border-black dark:border-white rounded-xl p-6 text-center">
+              <pre class="text-xs leading-tight mb-4">
+    👓 ? ? ?
+      
+     🤖 → 👓
+      ↓
+   "Found them!"
+      
+   Level 0: 🎮
+   Level 1: 🗺️ 
+   Level 2: 👁️🧠
+              </pre>
+              <p class="text-sm font-bold">Evolution of an idea</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Builder Section -->
+    <section id="builder" class="py-16 lg:py-24 px-4 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12 lg:mb-16">
+          <h2 class="text-4xl lg:text-6xl font-bold mb-8">
+            THE<span class="text-xs align-super"> BUILDER</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           <div>
-            <h3 class="text-3xl font-bold mb-6">THE BUILDER</h3>
-            <div class="space-y-4 text-lg">
-              <p>Hi, I'm Surabhi. I'm an engineering undergrad who just wrapped up my third year. I've been obsessed with robot arms for a while now.</p>
-              <p>I built my first one during Buildspace Nights & Weekends S5, which got me a $5K grant. That kicked off a string of projects, internships, and robots.</p>
-              <p>This past month, I've been part of the Localhost Fellowship, building Raven.</p>
+            <div class="text-2xl lg:text-3xl font-bold mb-6">Hi, I'm Surabhi 👋</div>
+            <div class="space-y-4 text-base lg:text-lg">
+              <p>
+                I'm an engineering undergrad who just wrapped up my third year. 
+                I've been obsessed with robot arms for a while now.
+              </p>
+              <p>
+                I built my first one during <span class="font-bold">Buildspace Nights & Weekends S5</span>, 
+                which got me a <span class="font-bold">$5K grant</span>. That kicked off a string of 
+                projects, internships, and robots.
+              </p>
+              <p>
+                This past month, I've been part of the <span class="font-bold">Localhost Fellowship</span>, 
+                building Raven during 28 days of beautiful chaos.
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <!-- Journey Timeline -->
+            <div class="border-2 border-black dark:border-white rounded-xl p-6">
+              <h3 class="text-xl font-bold mb-4">THE JOURNEY</h3>
+              <div class="space-y-3 text-sm">
+                <div class="flex justify-between border-b border-gray-300 dark:border-gray-600 pb-2">
+                  <span class="font-bold">Buildspace S5</span>
+                  <span>First robot arm + $5K grant</span>
+                </div>
+                <div class="flex justify-between border-b border-gray-300 dark:border-gray-600 pb-2">
+                  <span class="font-bold">Multiple Projects</span>
+                  <span>Internships & experiments</span>
+                </div>
+                <div class="flex justify-between border-b border-gray-300 dark:border-gray-600 pb-2">
+                  <span class="font-bold">Localhost Fellowship</span>
+                  <span>28 days of Raven</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="font-bold">Now</span>
+                  <span>Open sourcing everything</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="border-2 border-black dark:border-white rounded-xl p-6">
+              <h3 class="text-xl font-bold mb-4">FOLLOW THE JOURNEY</h3>
+              <div class="space-y-3">
+                <a href="https://x.com/this_is_surabhi" 
+                   class="flex items-center gap-3 text-sm hover:underline">
+                  <i class="fab fa-twitter"></i>
+                  <span>@this_is_surabhi</span>
+                </a>
+                <a href="https://github.com/SurabhiGupta17" 
+                   class="flex items-center gap-3 text-sm hover:underline">
+                  <i class="fab fa-github"></i>
+                  <span>SurabhiGupta17</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- What Raven Is -->
-        <div class="mt-24 border-t border-gray-300 pt-16">
-          <h3 class="text-4xl font-bold mb-8">WHAT IS RAVEN?</h3>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="border-2 rounded-xl border-black p-6">
-              <i class="fas fa-robot text-4xl mb-4"></i>
-              <h4 class="text-xl font-bold mb-4">ROBOTIC ARM</h4>
-              <p>5-DOF robot arm with two-finger claw gripper for precise manipulation</p>
+        <div class="mt-16 lg:mt-24 border-t border-gray-300 dark:border-gray-600 pt-12 lg:pt-16">
+          <h3 class="text-3xl lg:text-4xl font-bold mb-8 text-center">WHAT IS RAVEN?</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            <div class="border-2 rounded-xl border-black dark:border-white p-6 text-center">
+              <i class="fas fa-robot text-3xl lg:text-4xl mb-4"></i>
+              <h4 class="text-lg lg:text-xl font-bold mb-4">ROBOTIC ARM</h4>
+              <p class="text-sm lg:text-base">5-DOF robot arm with two-finger claw gripper for precise manipulation</p>
             </div>
-            <div class="border-2 rounded-xl border-black p-6">
-              <i class="fas fa-arrows-alt text-4xl mb-4"></i>
-              <h4 class="text-xl font-bold mb-4">MOBILE BASE</h4>
-              <p>Four-wheeled chassis that can navigate around your space</p>
+            <div class="border-2 rounded-xl border-black dark:border-white p-6 text-center">
+              <i class="fas fa-arrows-alt text-3xl lg:text-4xl mb-4"></i>
+              <h4 class="text-lg lg:text-xl font-bold mb-4">MOBILE BASE</h4>
+              <p class="text-sm lg:text-base">Four-wheeled chassis that can navigate around your space</p>
             </div>
-            <div class="border-2 rounded-xl border-black p-6">
-              <i class="fas fa-code-branch text-4xl mb-4"></i>
-              <h4 class="text-xl font-bold mb-4">OPEN SOURCE</h4>
-              <p>Built to be shared, modified, and improved by the community</p>
+            <div class="border-2 rounded-xl border-black dark:border-white p-6 text-center">
+              <i class="fas fa-code-branch text-3xl lg:text-4xl mb-4"></i>
+              <h4 class="text-lg lg:text-xl font-bold mb-4">OPEN SOURCE</h4>
+              <p class="text-sm lg:text-base">Built to be shared, modified, and improved by the community</p>
             </div>
           </div>
         </div>
 
         <!-- Future Vision -->
-        <div class="mt-16 bg-white text-black border-2 rounded-xl border-black p-8">
-          <h3 class="text-3xl font-bold mb-6">WHAT RAVEN COULD DO (EVENTUALLY)</h3>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="mt-12 lg:mt-16 bg-black dark:bg-white text-white dark:text-black border-2 rounded-xl border-black dark:border-white p-6 lg:p-8">
+          <h3 class="text-2xl lg:text-3xl font-bold mb-6 text-center">WHAT RAVEN COULD DO (EVENTUALLY)</h3>
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 text-sm lg:text-base">
             <div class="flex items-center gap-2">
               <i class="fas fa-glasses"></i>
               <span>Find your glasses</span>
@@ -207,105 +388,93 @@
     </section>
 
     <!-- Timeline Section -->
-    <section id="timeline" class="py-24 px-8 bg-gray-100">
+    <section id="timeline" class="py-16 lg:py-24 px-4 lg:px-8 bg-gray-100 dark:bg-gray-800">
       <div class="max-w-6xl mx-auto">
-        <h2 class="text-5xl font-bold mb-16">
-          28-DAY<span class="text-xs align-super"> TIMELINE</span>
+        <h2 class="text-4xl lg:text-5xl font-bold mb-8 lg:mb-16 text-center">
+          TIMELINE<span class="text-xs align-super"> </span>
         </h2>
 
-        <div class="space-y-12">
-          <!-- Week 1 -->
-          <div class="border-l-4 border-black pl-8">
-            <h3 class="text-2xl font-bold mb-4">WEEK 1: FOUNDATION</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div class="bg-white p-4 border border-gray-300">
-                <h4 class="font-bold">DAY 1-2</h4>
-                <p>Concept & initial research</p>
+        <!-- Each day gets its own card -->
+        <div class="space-y-6 lg:space-y-8">
+          <!-- Days 1-7 -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+            <div class="bg-white dark:bg-gray-700 border-2 border-black dark:border-white rounded-xl p-4 lg:p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-8 h-8 bg-black dark:bg-white text-white dark:text-black rounded-full flex items-center justify-center text-sm font-bold">3</div>
+                <h4 class="text-lg font-bold">DAY 3: BOM CREATION</h4>
               </div>
-              <div class="bg-white p-4 border border-gray-300">
-                <h4 class="font-bold">DAY 3-5</h4>
-                <p>Hardware sourcing & BOM</p>
-              </div>
-              <div class="bg-white p-4 border border-gray-300">
-                <h4 class="font-bold">DAY 6-7</h4>
-                <p>Chassis design & fabrication</p>
+              <p class="text-sm lg:text-base mb-3">Creating the bill of materials and sourcing components</p>
+              <div class="text-xs text-gray-600 dark:text-gray-300">
+                <i class="fas fa-shopping-cart mr-1"></i>
+                Component selection & supplier research
               </div>
             </div>
-          </div>
 
-          <!-- Week 2 -->
-          <div class="border-l-4 border-black pl-8">
-            <h3 class="text-2xl font-bold mb-4">WEEK 2: ASSEMBLY</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div class="bg-white p-4 border border-gray-300">
-                <h4 class="font-bold">DAY 8-10</h4>
-                <p>Motor integration & testing</p>
+            <div class="bg-white dark:bg-gray-700 border-2 border-black dark:border-white rounded-xl p-4 lg:p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-8 h-8 bg-black dark:bg-white text-white dark:text-black rounded-full flex items-center justify-center text-sm font-bold">4</div>
+                <h4 class="text-lg font-bold">DAY 4: ORDERING SPREE</h4>
               </div>
-              <div class="bg-white p-4 border border-gray-300">
-                <h4 class="font-bold">DAY 11-12</h4>
-                <p>Arm mounting & calibration</p>
-              </div>
-              <div class="bg-white p-4 border border-gray-300">
-                <h4 class="font-bold">DAY 13-14</h4>
-                <p>Power system setup</p>
+              <p class="text-sm lg:text-base mb-3">Placing orders for all components - Raspberry Pi 5, Arduino, motors</p>
+              <div class="text-xs text-gray-600 dark:text-gray-300">
+                <i class="fas fa-truck mr-1"></i>
+                Hardware procurement & delivery scheduling
               </div>
             </div>
-          </div>
 
-          <!-- Week 3 -->
-          <div class="border-l-4 border-black pl-8">
-            <h3 class="text-2xl font-bold mb-4">WEEK 3: SOFTWARE</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div class="bg-white p-4 border border-gray-300">
-                <h4 class="font-bold">DAY 15-17</h4>
-                <p>ROS 2 setup & navigation</p>
+            <div class="bg-white dark:bg-gray-700 border-2 border-black dark:border-white rounded-xl p-4 lg:p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-8 h-8 bg-black dark:bg-white text-white dark:text-black rounded-full flex items-center justify-center text-sm font-bold">5</div>
+                <h4 class="text-lg font-bold">DAY 5: CHASSIS DESIGN</h4>
               </div>
-              <div class="bg-white p-4 border border-gray-300">
-                <h4 class="font-bold">DAY 18-19</h4>
-                <p>LeRobot SDK integration</p>
-              </div>
-              <div class="bg-white p-4 border border-gray-300">
-                <h4 class="font-bold">DAY 20-21</h4>
-                <p>Safety systems & sensors</p>
+              <p class="text-sm lg:text-base mb-3">Sketching and finalizing the mobile base design</p>
+              <div class="text-xs text-gray-600 dark:text-gray-300">
+                <i class="fas fa-drafting-compass mr-1"></i>
+                CAD modeling & structural planning
               </div>
             </div>
-          </div>
 
-          <!-- Week 4 -->
-          <div class="border-l-4 border-black pl-8">
-            <h3 class="text-2xl font-bold mb-4">WEEK 4: TESTING</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div class="bg-white p-4 border border-gray-300">
-                <h4 class="font-bold">DAY 22-24</h4>
-                <p>System integration testing</p>
+            <div class="bg-white dark:bg-gray-700 border-2 border-black dark:border-white rounded-xl p-4 lg:p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-8 h-8 bg-black dark:bg-white text-white dark:text-black rounded-full flex items-center justify-center text-sm font-bold">6</div>
+                <h4 class="text-lg font-bold">DAY 6: FABRICATION BEGINS</h4>
               </div>
-              <div class="bg-white p-4 border border-gray-300">
-                <h4 class="font-bold">DAY 25-26</h4>
-                <p>Teleoperation refinement</p>
+              <p class="text-sm lg:text-base mb-3">Starting chassis fabrication with powder-coated metal</p>
+              <div class="text-xs text-gray-600 dark:text-gray-300">
+                <i class="fas fa-tools mr-1"></i>
+                Metal cutting & initial assembly
               </div>
-              <div class="bg-white p-4 border border-gray-300">
-                <h4 class="font-bold">DAY 27-28</h4>
-                <p>Documentation & demo prep</p>
+            </div>
+
+            <div class="bg-white dark:bg-gray-700 border-2 border-black dark:border-white rounded-xl p-4 lg:p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-8 h-8 bg-black dark:bg-white text-white dark:text-black rounded-full flex items-center justify-center text-sm font-bold">7</div>
+                <h4 class="text-lg font-bold">DAY 7: WEEK 1 WRAP</h4>
+              </div>
+              <p class="text-sm lg:text-base mb-3">Chassis complete, components arriving, first week done!</p>
+              <div class="text-xs text-gray-600 dark:text-gray-300">
+                <i class="fas fa-check mr-1"></i>
+                Foundation milestone achieved
               </div>
             </div>
           </div>
         </div>
 
         <!-- Project Phases -->
-        <div class="mt-24 border-t border-gray-400 pt-16">
-          <h3 class="text-4xl font-bold mb-8">PROJECT PHASES</h3>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-black text-white border-2 rounded-xl border-black p-6">
+        <div class="mt-16 lg:mt-24 border-t border-gray-400 dark:border-gray-600 pt-12 lg:pt-16">
+          <h3 class="text-3xl lg:text-4xl font-bold mb-8 text-center">PROJECT PHASES</h3>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+            <div class="bg-black dark:bg-white text-white dark:text-black border-2 rounded-xl border-black dark:border-white p-6">
               <h4 class="text-2xl font-bold mb-4">LEVEL 0</h4>
               <p class="text-sm uppercase tracking-widest mb-4">CURRENT VERSION</p>
               <p>Fully teleoperated. Control via keyboard and leader robot arm. No autonomy, no vision - just a solid working base.</p>
             </div>
-            <div class="bg-white border-2 rounded-xl border-black p-6">
+            <div class="bg-white dark:bg-gray-700 border-2 rounded-xl border-black dark:border-white p-6">
               <h4 class="text-2xl font-bold mb-4">LEVEL 1</h4>
               <p class="text-sm uppercase tracking-widest mb-4">BASIC AUTONOMY</p>
               <p>LiDAR mapping, SLAM navigation, inverse kinematics, and basic presets like "grab" or "place."</p>
             </div>
-            <div class="bg-white border-2 rounded-xl border-black p-6">
+            <div class="bg-white dark:bg-gray-700 border-2 rounded-xl border-black dark:border-white p-6">
               <h4 class="text-2xl font-bold mb-4">LEVEL 2</h4>
               <p class="text-sm uppercase tracking-widest mb-4">INTELLIGENT ROUTINES</p>
               <p>Computer vision, object recognition, voice control, and memory for complex tasks.</p>
@@ -316,66 +485,66 @@
     </section>
 
     <!-- Technical Specs -->
-    <section id="specs" class="py-24 px-8 noise-bg">
+    <section id="specs" class="py-16 lg:py-24 px-4 lg:px-8 noise-bg">
       <div class="max-w-6xl mx-auto relative z-10">
-        <h2 class="text-5xl font-bold mb-16">
+        <h2 class="text-4xl lg:text-5xl font-bold mb-12 lg:mb-16 text-center">
           SPECS<span class="text-xs align-super"></span>
         </h2>
 
         <!-- Core Components -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          <div class="border-2 rounded-xl border-black p-6 bg-white">
-            <h3 class="text-2xl font-bold mb-6 flex items-center gap-2">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-12 lg:mb-16">
+          <div class="border-2 rounded-xl border-black dark:border-white p-6 bg-white dark:bg-gray-700">
+            <h3 class="text-xl lg:text-2xl font-bold mb-6 flex items-center gap-2">
               <i class="fas fa-microchip"></i>
-              CORE
+              CORE COMPONENTS
             </h3>
             <div class="space-y-3">
-              <div class="flex justify-between border-b pb-2">
+              <div class="flex justify-between border-b border-gray-300 dark:border-gray-600 pb-2">
                 <span class="font-bold">Brain</span>
                 <span>Raspberry Pi 5</span>
               </div>
-              <div class="flex justify-between border-b pb-2">
+              <div class="flex justify-between border-b border-gray-300 dark:border-gray-600 pb-2">
                 <span class="font-bold">Controller</span>
                 <span>Arduino Uno</span>
               </div>
-              <div class="flex justify-between border-b pb-2">
+              <div class="flex justify-between border-b border-gray-300 dark:border-gray-600 pb-2">
                 <span class="font-bold">Motor Driver</span>
                 <span>Cytron Motor Driver</span>
               </div>
-              <div class="flex justify-between border-b pb-2">
+              <div class="flex justify-between border-b border-gray-300 dark:border-gray-600 pb-2">
                 <span class="font-bold">Power</span>
                 <span>12V Rechargeable Battery</span>
               </div>
-              <div class="flex justify-between border-b pb-2">
+              <div class="flex justify-between border-b border-gray-300 dark:border-gray-600 pb-2">
                 <span class="font-bold">Sensors</span>
                 <span>Ultrasonic Sensors</span>
               </div>
             </div>
           </div>
 
-          <div class="border-2 rounded-xl border-black p-6 bg-white">
-            <h3 class="text-2xl font-bold mb-6 flex items-center gap-2">
+          <div class="border-2 rounded-xl border-black dark:border-white p-6 bg-white dark:bg-gray-700">
+            <h3 class="text-xl lg:text-2xl font-bold mb-6 flex items-center gap-2">
               <i class="fas fa-robot"></i>
-              MECHANICAL
+              MECHANICAL SPECS
             </h3>
             <div class="space-y-3">
-              <div class="flex justify-between border-b pb-2">
+              <div class="flex justify-between border-b border-gray-300 dark:border-gray-600 pb-2">
                 <span class="font-bold">Arm DOF</span>
                 <span>5 Degrees of Freedom</span>
               </div>
-              <div class="flex justify-between border-b pb-2">
+              <div class="flex justify-between border-b border-gray-300 dark:border-gray-600 pb-2">
                 <span class="font-bold">Gripper</span>
                 <span>Two-finger Claw</span>
               </div>
-              <div class="flex justify-between border-b pb-2">
+              <div class="flex justify-between border-b border-gray-300 dark:border-gray-600 pb-2">
                 <span class="font-bold">Mobility</span>
                 <span>4-Wheel Chassis</span>
               </div>
-              <div class="flex justify-between border-b pb-2">
+              <div class="flex justify-between border-b border-gray-300 dark:border-gray-600 pb-2">
                 <span class="font-bold">Body Material</span>
                 <span>Powder-coated Metal</span>
               </div>
-              <div class="flex justify-between border-b pb-2">
+              <div class="flex justify-between border-b border-gray-300 dark:border-gray-600 pb-2">
                 <span class="font-bold">Connection</span>
                 <span>Wired (Wireless coming)</span>
               </div>
@@ -384,31 +553,31 @@
         </div>
 
         <!-- Software Stack -->
-        <div class="bg-white border-2 rounded-xl border-black text-black p-8 mb-16">
-          <h3 class="text-3xl font-bold mb-6 flex items-center gap-2">
+        <div class="bg-white dark:bg-gray-700 border-2 rounded-xl border-black dark:border-white text-black dark:text-white p-6 lg:p-8 mb-12 lg:mb-16">
+          <h3 class="text-2xl lg:text-3xl font-bold mb-6 flex items-center gap-2">
             <i class="fas fa-code"></i>
             SOFTWARE STACK
           </h3>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
             <div>
-              <h4 class="text-xl font-bold mb-4">CONTROL</h4>
-              <ul class="space-y-2">
+              <h4 class="text-lg lg:text-xl font-bold mb-4">CONTROL</h4>
+              <ul class="space-y-2 text-sm lg:text-base">
                 <li>• LeRobot Python SDK</li>
                 <li>• ROS 2 Navigation</li>
                 <li>• Keyboard Teleoperation</li>
               </ul>
             </div>
             <div>
-              <h4 class="text-xl font-bold mb-4">UPCOMING</h4>
-              <ul class="space-y-2">
+              <h4 class="text-lg lg:text-xl font-bold mb-4">UPCOMING</h4>
+              <ul class="space-y-2 text-sm lg:text-base">
                 <li>• SLAM Mapping</li>
                 <li>• Nav2 Autonomy</li>
                 <li>• Inverse Kinematics</li>
               </ul>
             </div>
             <div>
-              <h4 class="text-xl font-bold mb-4">FUTURE</h4>
-              <ul class="space-y-2">
+              <h4 class="text-lg lg:text-xl font-bold mb-4">FUTURE</h4>
+              <ul class="space-y-2 text-sm lg:text-base">
                 <li>• Computer Vision</li>
                 <li>• Voice Control</li>
                 <li>• Memory System</li>
@@ -416,86 +585,88 @@
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="py-24 px-8 bg-gray-100">
+    <section id="faq" class="py-16 lg:py-24 px-4 lg:px-8 bg-gray-100 dark:bg-gray-800">
       <div class="max-w-6xl mx-auto">
-        <h2 class="text-5xl font-bold mb-16">
+        <h2 class="text-4xl lg:text-5xl font-bold mb-12 lg:mb-16 text-center">
           FAQ<span class="text-xs align-super"></span>
         </h2>
 
-        <div class="space-y-8">
-          <div class="bg-white border-2 rounded-xl border-black p-6">
-            <h3 class="text-xl font-bold mb-4">Is Raven actually open source?</h3>
-            <p>Absolutely! All hardware designs, software code, and build instructions will be available on GitHub. The goal is to create a community-driven platform for home robotics.</p>
+        <!-- Mobile-friendly FAQ cards -->
+        <div class="space-y-6 lg:space-y-8">
+          <div class="bg-white dark:bg-gray-700 border-2 rounded-xl border-black dark:border-white p-4 lg:p-6">
+            <h3 class="text-lg lg:text-xl font-bold mb-4">Is Raven actually open source?</h3>
+            <p class="text-sm lg:text-base">Absolutely! All hardware designs, software code, and build instructions will be available on GitHub. The goal is to create a community-driven platform for home robotics.</p>
           </div>
 
-          <div class="bg-white border-2 rounded-xl border-black p-6">
-            <h3 class="text-xl font-bold mb-4">How much does it cost to build one?</h3>
-            <p>The current BOM is around ₹20,000-40,000 (approximately $250-500 USD). We're working on a dev kit that we'll you updated about through Discord/X.</p>
+          <div class="bg-white dark:bg-gray-700 border-2 rounded-xl border-black dark:border-white p-4 lg:p-6">
+            <h3 class="text-lg lg:text-xl font-bold mb-4">How much does it cost to build one?</h3>
+            <p class="text-sm lg:text-base">The current BOM is around ₹20,000-40,000 (approximately $250-500 USD). We're working on a dev kit that we'll keep you updated about through Discord/X.</p>
           </div>
 
-          <div class="bg-white border-2 rounded-xl border-black p-6">
-            <h3 class="text-xl font-bold mb-4">Can it actually find my glasses?</h3>
-            <p>Not yet! The current Level 0 version is teleoperated only. Computer vision and object recognition are planned for Level 2, which will enable tasks like finding specific objects.</p>
+          <div class="bg-white dark:bg-gray-700 border-2 rounded-xl border-black dark:border-white p-4 lg:p-6">
+            <h3 class="text-lg lg:text-xl font-bold mb-4">Can it actually find my glasses?</h3>
+            <p class="text-sm lg:text-base">Not yet! The current Level 0 version is teleoperated only. Computer vision and object recognition are planned for Level 2, which will enable tasks like finding specific objects.</p>
           </div>
 
-          <div class="bg-white border-2 rounded-xl border-black p-6">
-            <h3 class="text-xl font-bold mb-4">Is it safe around pets and children?</h3>
-            <p>Safety is a priority. Raven has ultrasonic sensors that stop movement when obstacles are detected. However, the current version requires supervision, and we're continuously improving safety features.</p>
+          <div class="bg-white dark:bg-gray-700 border-2 rounded-xl border-black dark:border-white p-4 lg:p-6">
+            <h3 class="text-lg lg:text-xl font-bold mb-4">Is it safe around pets and children?</h3>
+            <p class="text-sm lg:text-base">Safety is a priority. Raven has ultrasonic sensors that stop movement when obstacles are detected. However, the current version requires supervision, and we're continuously improving safety features.</p>
           </div>
 
-          <div class="bg-white border-2 rounded-xl border-black p-6">
-            <h3 class="text-xl font-bold mb-4">When will the dev kit be available?</h3>
-            <p>We're working on getting to Level 2 before we work on the dev kit. Join our Discord to get updates on availability and be among the first to know when pre-orders open!</p>
+          <div class="bg-white dark:bg-gray-700 border-2 rounded-xl border-black dark:border-white p-4 lg:p-6">
+            <h3 class="text-lg lg:text-xl font-bold mb-4">When will the dev kit be available?</h3>
+            <p class="text-sm lg:text-base">We're working on getting to Level 2 before we work on the dev kit. Join our Discord to get updates on availability and be among the first to know when pre-orders open!</p>
           </div>
 
-          <div class="bg-white border-2 rounded-xl border-black p-6">
-            <h3 class="text-xl font-bold mb-4">Can I contribute to the project?</h3>
-            <p>Yes! Whether you're into hardware, software, or just have ideas, there's room for contribution. Follow the GitHub repository and join our Discord community to get involved.</p>
+          <div class="bg-white dark:bg-gray-700 border-2 rounded-xl border-black dark:border-white p-4 lg:p-6">
+            <h3 class="text-lg lg:text-xl font-bold mb-4">Can I contribute to the project?</h3>
+            <p class="text-sm lg:text-base">Yes! Whether you're into hardware, software, or just have ideas, there's room for contribution. Follow the GitHub repository and join our Discord community to get involved.</p>
           </div>
 
-          <div class="bg-white border-2 rounded-xl border-black p-6">
-            <h3 class="text-xl font-bold mb-4">What programming experience do I need?</h3>
-            <p>Basic Python knowledge is helpful for customization. The system uses ROS 2 and the LeRobot SDK, but we're working on making it accessible to non-programmers through simple configuration files.</p>
+          <div class="bg-white dark:bg-gray-700 border-2 rounded-xl border-black dark:border-white p-4 lg:p-6">
+            <h3 class="text-lg lg:text-xl font-bold mb-4">What programming experience do I need?</h3>
+            <p class="text-sm lg:text-base">Basic Python knowledge is helpful for customization. The system uses ROS 2 and the LeRobot SDK, but we're working on making it accessible to non-programmers through simple configuration files.</p>
           </div>
 
-          <div class="bg-white border-2 rounded-xl border-black p-6">
-            <h3 class="text-xl font-bold mb-4">Why build this instead of buying existing robots?</h3>
-            <p>Most home robots are closed systems with limited customization. Raven is designed to be hackable, extensible, and affordable - a platform for learning and innovation rather than just a product.</p>
+          <div class="bg-white dark:bg-gray-700 border-2 rounded-xl border-black dark:border-white p-4 lg:p-6">
+            <h3 class="text-lg lg:text-xl font-bold mb-4">Why build this instead of buying existing robots?</h3>
+            <p class="text-sm lg:text-base">Most home robots are closed systems with limited customization. Raven is designed to be hackable, extensible, and affordable - a platform for learning and innovation rather than just a product.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-24 px-8 bg-black text-white">
+    <section id="contact" class="py-16 lg:py-24 px-4 lg:px-8 bg-black dark:bg-gray-900 text-white">
       <div class="max-w-6xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           <div>
-            <h3 class="text-3xl font-bold mb-8">GET IN TOUCH</h3>
+            <h3 class="text-2xl lg:text-3xl font-bold mb-8">CONTACT SURABHI</h3>
             <div class="space-y-6">
               <a href="mailto:surabhi.gupta1617@gmail.com" 
-                 class="flex items-center gap-4 text-xl hover:underline">
+                 class="flex items-center gap-4 text-lg lg:text-xl hover:underline">
                 <i class="fas fa-envelope w-6"></i>
-                <span>surabhi.gupta1617@gmail.com</span>
+                <span class="break-all">surabhi.gupta1617@gmail.com</span>
               </a>
               <a href="#" 
-                 class="flex items-center gap-4 text-xl hover:underline">
+                 class="flex items-center gap-4 text-lg lg:text-xl hover:underline">
                 <i class="fab fa-discord w-6"></i>
                 <span>Join Discord Community</span>
               </a>
-              <a href="#" 
-                 class="flex items-center gap-4 text-xl hover:underline">
+              <a href="https://x.com/this_is_surabhi" 
+                 class="flex items-center gap-4 text-lg lg:text-xl hover:underline">
                 <i class="fab fa-twitter w-6"></i>
-                <span>@surabhi_builds</span>
+                <span>@this_is_surabhi</span>
               </a>
-              <a href="#" 
-                 class="flex items-center gap-4 text-xl hover:underline">
+              <a href="https://github.com/SurabhiGupta17" 
+                 class="flex items-center gap-4 text-lg lg:text-xl hover:underline">
                 <i class="fab fa-github w-6"></i>
-                <span>github.com/surabhi</span>
+                <span>SurabhiGupta17</span>
               </a>
             </div>
           </div>
@@ -504,13 +675,17 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 px-8 border-t border-gray-400">
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
-        <div class="mb-4 md:mb-0">
-          <span class="text-xl font-bold tracking-normal">RAVEN</span>
+    <footer class="py-6 lg:py-8 px-4 lg:px-8 border-t border-gray-400 dark:border-gray-600">
+      <div class="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between items-center">
+        <div class="mb-4 lg:mb-0 text-center lg:text-left">
+          <span class="text-lg lg:text-xl font-bold tracking-normal">RAVEN</span>
         </div>
-        <div class="flex items-center gap-6">
-          <div class="text-xs text-gray-600 flex items-center gap-2">
+        <div class="flex flex-col lg:flex-row items-center gap-4 lg:gap-6 text-center">
+          <a href="https://github.com/SurabhiGupta17" class="hover:underline text-sm">
+            <i class="fab fa-github"></i>
+            <span class="ml-2">Source Code</span>
+          </a>
+          <div class="text-xs text-gray-600 dark:text-gray-400 flex items-center gap-2">
             <span class="inline-block transform rotate-180 text-lg mb-2">©</span>
             <span>Copyleft 2025 - Share, Adapt, Build.</span>
           </div>
@@ -518,8 +693,23 @@
       </div>
     </footer>
 
-    <!-- Scroll to top functionality -->
+    <!-- Dark Mode & Scroll Functionality -->
     <script>
+      // Dark mode toggle
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      const html = document.documentElement;
+
+      // Check for saved dark mode preference or default to light mode
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        html.classList.toggle('dark', savedTheme === 'dark');
+      }
+
+      darkModeToggle.addEventListener('click', () => {
+        html.classList.toggle('dark');
+        localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+      });
+
       // Smooth scrolling for navigation links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -539,12 +729,32 @@
         const nav = document.querySelector('nav');
         if (window.scrollY > 100) {
           nav.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+          nav.classList.add('dark:bg-gray-900/95');
           nav.style.backdropFilter = 'blur(10px)';
         } else {
-          nav.style.backgroundColor = 'white';
-          nav.style.backdropFilter = 'none';
+          nav.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+          nav.classList.add('dark:bg-gray-900/90');
+          nav.style.backdropFilter = 'blur(2px)';
         }
       });
+
+      // Add some fun console ASCII art
+      console.log(`
+      ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+      ░                                                                                                                ░
+      ░   ██████╗  █████╗ ██╗   ██╗███████╗███╗   ██╗    ██████╗  ██████╗ ██████╗  ██████╗ ████████╗██╗ ██████╗███████╗   ░
+      ░   ██╔══██╗██╔══██╗██║   ██║██╔════╝████╗  ██║    ██╔══██╗██╔═══██╗██╔══██╗██╔═══██╗╚══██╔══╝██║██╔════╝██╔════╝   ░
+      ░   ██████╔╝███████║██║   ██║█████╗  ██╔██╗ ██║    ██████╔╝██║   ██║██████╔╝██║   ██║   ██║   ██║██║     ███████╗   ░
+      ░   ██╔══██╗██╔══██║╚██╗ ██╔╝██╔══╝  ██║╚██╗██║    ██╔══██╗██║   ██║██╔══██╗██║   ██║   ██║   ██║██║     ╚════██║   ░
+      ░   ██║  ██║██║  ██║ ╚████╔╝ ███████╗██║ ╚████║    ██║  ██║╚██████╔╝██████╔╝╚██████╔╝   ██║   ██║╚██████╗███████║   ░
+      ░   ╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝  ╚══════╝╚═╝  ╚═══╝    ╚═╝  ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝    ╚═╝   ╚═╝ ╚═════╝╚══════╝   ░
+      ░                                                                                                                ░
+      ░                         Hey there, curious developer! 👋                                                      ░
+      ░                         Thanks for checking out the code!                                                     ░
+      ░                         Want to build your own Raven? Join our Discord! 🤖                                   ░
+      ░                                                                                                                ░
+      ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+      `);
     </script>
   </body>
 </html>
