@@ -1,91 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RAVEN | Open Source Home Assistant Robot</title>
-<meta name="title" content="RAVEN | Open Source Home Assistant Robot">
-<meta name="description" content="Meet Raven - the open-source home assistant robot built in 28 days. A 5-DOF robotic arm on wheels that started with lost glasses and evolved into something bigger.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://raven.surabhi.dev/">
-<meta property="og:title" content="RAVEN | Open Source Home Assistant Robot">
-<meta property="og:description" content="Meet Raven - the open-source home assistant robot built in 28 days. A 5-DOF robotic arm on wheels that started with lost glasses and evolved into something bigger.">
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="RAVEN | Open Source Home Assistant Robot">
-<meta property="twitter:description" content="Meet Raven - the open-source home assistant robot built in 28 days. A 5-DOF robotic arm on wheels that started with lost glasses and evolved into something bigger.">
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-<script>
-tailwind.config = {
-darkMode: 'class',
-theme: {
-extend: {
-fontFamily: {
-mono: ["Space Mono", "monospace"],
-},
-},
-},
-};
-</script>
-<style>
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-* {
-font-family: "Space Mono", monospace;
-}
-.noise-bg {
-position: relative;
-}
-.noise-bg::before {
-content: "";
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-opacity: 0.05;
-z-index: 0;
-background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-}
-.grid-dots {
-background-size: 20px 20px;
-background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
-opacity: 0.1;
-}
-.dark .grid-dots {
-background-image: radial-gradient(circle, #fff 1px, transparent 1px);
-}
-* {
-transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAVEN | Open Source Home Assistant Robot</title>
+    <meta name="title" content="RAVEN | Open Source Home Assistant Robot">
+    <meta name="description"
+        content="Meet Raven - the open-source home assistant robot built in 28 days. A 5-DOF robotic arm on wheels that started with lost glasses and evolved into something bigger.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://raven.surabhi.dev/">
+    <meta property="og:title" content="RAVEN | Open Source Home Assistant Robot">
+    <meta property="og:description"
+        content="Meet Raven - the open-source home assistant robot built in 28 days. A 5-DOF robotic arm on wheels that started with lost glasses and evolved into something bigger.">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="RAVEN | Open Source Home Assistant Robot">
+    <meta property="twitter:description"
+        content="Meet Raven - the open-source home assistant robot built in 28 days. A 5-DOF robotic arm on wheels that started with lost glasses and evolved into something bigger.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        mono: ["Space Mono", "monospace"],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+        * {
+            font-family: "Space Mono", monospace;
+        }
+
+        .noise-bg {
+            position: relative;
+        }
+
+        .noise-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            z-index: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .grid-dots {
+            background-size: 20px 20px;
+            background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
+            opacity: 0.1;
+        }
+
+        .dark .grid-dots {
+            background-image: radial-gradient(circle, #fff 1px, transparent 1px);
+        }
+
+        * {
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+    </style>
 </head>
+
 <body class="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen transition-colors duration-300">
-<nav class="fixed w-full px-4 py-3 flex justify-between items-center z-50 bg-white/90 dark:bg-gray-900/90 border-b border-gray-900 dark:border-gray-100 backdrop-blur-sm">
-<div class="text-xl font-bold tracking-normal">RAVEN</div>
-<div class="flex gap-6 items-center">
-<a href="#about" class="text-sm hover:underline decoration-4 underline-offset-8">ABOUT</a>
-<a href="#timeline" class="text-sm hover:underline decoration-4 underline-offset-8">TIMELINE</a>
-<a href="#specs" class="text-sm hover:underline decoration-4 underline-offset-8">SPECS</a>
-<a href="#faq" class="text-sm hover:underline decoration-4 underline-offset-8">FAQ</a>
-<a href="#contact" class="text-sm hover:underline decoration-4 underline-offset-8">CONTACT</a>
-<button id="darkModeToggle" class="ml-2 p-2 rounded-lg border border-gray-900 dark:border-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle dark mode">
-<i class="fas fa-moon dark:hidden text-sm"></i>
-<i class="fas fa-sun hidden dark:inline text-sm"></i>
-</button>
-</div>
-</nav>
-<header class="h-screen flex flex-col justify-center items-center pt-16 relative overflow-hidden">
-<div class="grid-dots absolute inset-0"></div>
-<div class="z-10 px-8 max-w-4xl text-center">
-<h1 class="text-6xl md:text-8xl font-bold mb-6 leading-none">RAVEN</h1>
-<p class="text-lg md:text-xl max-w-2xl mx-auto mb-8">The open-source home assistant robot that started with lost glasses and evolved into something bigger.</p>
-<div class="flex flex-col md:flex-row gap-4 justify-center">
-<a href="mailto:surabhi.gupta1617@gmail.com" class="border-2 rounded-xl border-black dark:border-white px-8 py-3 text-sm uppercase tracking-widest inline-block hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">Email Surabhi</a>
-<a href="#" class="border-2 rounded-xl border-black dark:border-white px-8 py-3 text-sm uppercase tracking-widest inline-block hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">Join Discord</a>
-</div>
-</div>
-<div class="absolute bottom-8 right-8 text-xs opacity-20 hidden md:block">
-<pre>
+    <nav
+        class="fixed w-full px-4 py-3 flex justify-between items-center z-50 bg-white/90 dark:bg-gray-900/90 border-b border-gray-900 dark:border-gray-100 backdrop-blur-sm">
+        <div class="text-xl font-bold tracking-normal">RAVEN</div>
+        <div class="flex gap-6 items-center">
+            <a href="#about" class="text-sm hover:underline decoration-4 underline-offset-8">ABOUT</a>
+            <a href="#timeline" class="text-sm hover:underline decoration-4 underline-offset-8">TIMELINE</a>
+            <a href="#specs" class="text-sm hover:underline decoration-4 underline-offset-8">SPECS</a>
+            <a href="#faq" class="text-sm hover:underline decoration-4 underline-offset-8">FAQ</a>
+            <a href="#contact" class="text-sm hover:underline decoration-4 underline-offset-8">CONTACT</a>
+            <button id="darkModeToggle"
+                class="ml-2 p-2 rounded-lg border border-gray-900 dark:border-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                aria-label="Toggle dark mode">
+                <i class="fas fa-moon dark:hidden text-sm"></i>
+                <i class="fas fa-sun hidden dark:inline text-sm"></i>
+            </button>
+        </div>
+    </nav>
+    <header class="h-screen flex flex-col justify-center items-center pt-16 relative overflow-hidden">
+        <div class="grid-dots absolute inset-0"></div>
+        <div class="z-10 px-8 max-w-4xl text-center">
+            <h1 class="text-6xl md:text-8xl font-bold mb-6 leading-none">RAVEN</h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8">The open-source home assistant robot that started with
+                lost glasses and evolved into something bigger.</p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="mailto:surabhi.gupta1617@gmail.com"
+                    class="border-2 rounded-xl border-black dark:border-white px-8 py-3 text-sm uppercase tracking-widest inline-block hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">Email
+                    Surabhi</a>
+                <a href="#"
+                    class="border-2 rounded-xl border-black dark:border-white px-8 py-3 text-sm uppercase tracking-widest inline-block hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">Join
+                    Discord</a>
+            </div>
+        </div>
+        <div class="absolute bottom-8 right-8 text-xs opacity-20 hidden md:block">
+            <pre>
     [O]
      |
    __|__
@@ -97,407 +116,756 @@ transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
    / | \
   ●  ●  ●
 </pre>
-</div>
-</header>
-<section id="problem" class="py-16 lg:py-24 px-4 lg:px-8 bg-white dark:bg-gray-900">
-<div class="max-w-6xl mx-auto">
-<div class="text-center mb-12 lg:mb-16">
-<h2 class="text-4xl lg:text-6xl font-bold mb-8">THE PROBLEM<span class="text-xs align-super"></span></h2>
-</div>
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16">
-<div class="lg:col-span-2">
-<div class="text-2xl lg:text-4xl font-bold mb-8 leading-tight">"I keep losing my glasses. Like, constantly."</div>
-<div class="space-y-6 text-base lg:text-lg">
-<p>It started simple. I just wanted a robot to find my glasses. Now it's growing into a mobile assistant that helps with everyday tasks — a companion robot that's open, hackable, and built to evolve.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="builder" class="py-16 lg:py-24 px-4 lg:px-8">
-<div class="max-w-6xl mx-auto">
-<div class="text-center mb-12 lg:mb-16">
-<h2 class="text-4xl lg:text-6xl font-bold mb-8">THE BUILDER<span class="text-xs align-super"></span></h2>
-</div>
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-<div>
-<div class="text-2xl lg:text-3xl font-bold mb-6">Hi, I'm Surabhi</div>
-<div class="space-y-4 text-base lg:text-lg">
-<p>I'm an engineering undergrad who just wrapped up my third year. I've been obsessed with robot arms for a while now.</p>
-<p>I built my first one during <span class="font-bold">Buildspace Nights & Weekends S5</span>, which got me a <span class="font-bold">$5K grant</span>. That kicked off a string of projects, internships, and robots.</p>
-<p>This past month, I've been part of the <span class="font-bold">Localhost Fellowship</span>, building Raven during 28 days of beautiful chaos.</p>
-</div>
-</div>
-<div class="space-y-6">
-<div class="border-2 border-black rounded-xl p-6 bg-white dark:bg-gray-800 dark:border-gray-700">
-<h3 class="text-xl font-bold mb-4">THE JOURNEY</h3>
-<div class="space-y-3 text-sm">
-<div class="flex justify-between border-b border-gray-300 dark:border-gray-600 pb-2">
-<span class="font-bold">Buildspace S5</span>
-<span>First robot arm + $5K grant</span>
-</div>
-<div class="flex justify-between border-b border-gray-300 dark:border-gray-600 pb-2">
-<span class="font-bold">Multiple Projects</span>
-<span>Internships & experiments</span>
-</div>
-<div class="flex justify-between border-b border-gray-300 dark:border-gray-600 pb-2">
-<span class="font-bold">Localhost Fellowship</span>
-<span>28 days of Raven</span>
-</div>
-<div class="flex justify-between">
-<span class="font-bold">Now</span>
-<span>Open sourcing everything</span>
-</div>
-</div>
-</div>
-<div class="border-2 border-black rounded-xl p-6 bg-white dark:bg-gray-800 dark:border-gray-700">
-<h3 class="text-xl font-bold mb-4">FOLLOW THE JOURNEY</h3>
-<div class="space-y-3">
-<a href="https://x.com/this_is_surabhi" class="flex items-center gap-3 text-sm hover:underline"><i class="fab fa-twitter"></i><span>@this_is_surabhi</span></a>
-<a href="https://github.com/SurabhiGupta17" class="flex items-center gap-3 text-sm hover:underline"><i class="fab fa-github"></i><span>SurabhiGupta17</span></a>
-</div>
-</div>
-</div>
-</div>
-<div class="mt-24 border-t border-gray-300 dark:border-gray-700 pt-16">
-<h3 class="text-4xl font-bold mb-8">WHAT IS RAVEN?</h3>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div class="border-2 rounded-xl border-black p-6 bg-white dark:bg-gray-800 dark:border-gray-700">
-<i class="fas fa-robot text-4xl mb-4"></i>
-<h4 class="text-xl font-bold mb-4">ROBOTIC ARM</h4>
-<p>5-DOF robot arm with two-finger claw gripper for precise manipulation</p>
-</div>
-<div class="border-2 rounded-xl border-black p-6 bg-white dark:bg-gray-800 dark:border-gray-700">
-<i class="fas fa-arrows-alt text-4xl mb-4"></i>
-<h4 class="text-xl font-bold mb-4">MOBILE BASE</h4>
-<p>Four-wheeled chassis that can navigate around your space</p>
-</div>
-<div class="border-2 rounded-xl border-black p-6 bg-white dark:bg-gray-800 dark:border-gray-700">
-<i class="fas fa-code-branch text-4xl mb-4"></i>
-<h4 class="text-xl font-bold mb-4">OPEN SOURCE</h4>
-<p>Built to be shared, modified, and improved by the community</p>
-</div>
-</div>
-</div>
-<div class="mt-16 bg-white dark:bg-gray-800 dark:text-white border-2 rounded-xl border-black dark:border-gray-700 p-8">
-<h3 class="text-3xl font-bold mb-6">WHAT RAVEN COULD DO (EVENTUALLY)</h3>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-<div class="flex items-center gap-2"><i class="fas fa-glasses"></i><span>Find your glasses</span></div>
-<div class="flex items-center gap-2"><i class="fas fa-coffee"></i><span>Fetch you a Coke</span></div>
-<div class="flex items-center gap-2"><i class="fas fa-utensils"></i><span>Stir your drink</span></div>
-<div class="flex items-center gap-2"><i class="fas fa-heart"></i><span>Feed you</span></div>
-<div class="flex items-center gap-2"><i class="fas fa-comments"></i><span>Talk to you</span></div>
-<div class="flex items-center gap-2"><i class="fas fa-shield-alt"></i><span>Watch over family</span></div>
-<div class="flex items-center gap-2"><i class="fas fa-exclamation-triangle"></i><span>Fall detection</span></div>
-<div class="flex items-center gap-2"><i class="fas fa-broom"></i><span>Declutter your room</span></div>
-</div>
-</div>
-</div>
-</section>
-<section id="timeline" class="py-24 px-8 bg-gray-100 dark:bg-gray-800">
-<div class="max-w-6xl mx-auto">
-<h2 class="text-5xl font-bold mb-16">THE 4-WEEK TIMELINE<span class="text-xs align-super"></span></h2>
-<div class="border-2 rounded-xl border-black dark:border-gray-700 bg-white dark:bg-gray-800 p-6 h-[600px] overflow-y-auto">
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 1</h4>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 1/28 of building a home assistant robot<br><br>- set up a basic differential drive chassis in simulation<br>- gonna implement slam and navigation on sim till I get access to hardware<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a href="https://t.co/1YgAUmSDPk">pic.twitter.com/1YgAUmSDPk</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1929623379130437663?ref_src=twsrc%5Etfw">June 2, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 2</h4>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 2/28 of building a home assistant robot <br><br>- set up the raspberry pi<br>- established comms between the raspi and my device<br>- plan is to run the heavy algorithms on my laptop and let the pi handle the lidar and motors <br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a href="https://t.co/YZsIVzui2d">pic.twitter.com/YZsIVzui2d</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1929898535669133580?ref_src=twsrc%5Etfw">June 3, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 3</h4>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 3/28 of building a home assistant robot<br><br>- lidar + driver configured and set up<br>- visualisation of lidar data in rviz <br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a href="https://t.co/3hxPQ9TXVo">pic.twitter.com/3hxPQ9TXVo</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1930273828674122102?ref_src=twsrc%5Etfw">June 4, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 4</h4>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 4/28 of building a home assistant robot<br><br>- set up lidar mapping (using slam toolbox)<br>- can’t wait to mount the lidar on the chassis and map the house<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a href="https://t.co/R7Tuq8jXux">pic.twitter.com/R7Tuq8jXux</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1930639961835151532?ref_src=twsrc%5Etfw">June 5, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 5</h4>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 5/28 of building a home assistant robot<br><br>- till I wait for the hardware components to arrive, I am working on the simulation<br>- started work with the so101 arm urdf<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a href="https://t.co/ieQIvtMpXI">pic.twitter.com/ieQIvtMpXI</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1931000519793009022?ref_src=twsrc%5Etfw">June 6, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 6</h4>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 6/28 of building a home assistant robot <br><br>- tried (and failed) to build a working moveit config for the urdf <br>- but hardware parts are here!!! s/o to <a href="https://twitter.com/_1nF0rmed_?ref_src=twsrc%5Etfw">@_1nF0rmed_</a> for the recommendation<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a href="https://t.co/X57OzBgfTp">pic.twitter.com/X57OzBgfTp</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1931441890303635751?ref_src=twsrc%5Etfw">June 7, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 7</h4>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 7/28 of building a home assistant robot <br><br>- finished assembly of the leader arm! <a href="https://twitter.com/shourshot?ref_src=twsrc%5Etfw">@shourshot</a> and <a href="https://twitter.com/habril27?ref_src=twsrc%5Etfw">@habril27</a> helped out when I got stuck :)<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a href="https://t.co/n1ykzH3Tk7">pic.twitter.com/n1ykzH3Tk7</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1931791618153300327?ref_src=twsrc%5Etfw">June 8, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 8</h4>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 8/28 of building a home assistant robot<br><br>- completed assembly and wiring for both arms<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a href="https://t.co/usKkN4g7tj">pic.twitter.com/usKkN4g7tj</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1932184953095434326?ref_src=twsrc%5Etfw">June 9, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 9</h4>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 9/28 of building a home assistant robot <br><br>- calibrated the robot arms<br>- teleoperation is functional!<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a href="https://t.co/ceLefO3knt">pic.twitter.com/ceLefO3knt</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1932583652820660471?ref_src=twsrc%5Etfw">June 10, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 10</h4>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 10/28 of building a home assistant robot <br><br>- mounted the camera on the follower arm<br>- it’s been a slow day<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a href="https://t.co/y3Vj54e8Vs">pic.twitter.com/y3Vj54e8Vs</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1932823069443428390?ref_src=twsrc%5Etfw">June 11, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 11</h4>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 11/28 of building a home assistant robot <br><br>- recalibrated the arms (properly this time)<br>- tried out teleop for basic tasks to get familiar with the system<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a href="https://t.co/ijtZWAjEr9">pic.twitter.com/ijtZWAjEr9</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1933253997143728393?ref_src=twsrc%5Etfw">June 12, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 12</h4>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 12/28 of building a home assistant robot <br><br>- read about how to train the robot arm<br>- brainstormed cool task ideas with <a href="https://twitter.com/k7agar?ref_src=twsrc%5Etfw">@k7agar</a> <br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1933637903470768515?ref_src=twsrc%5Etfw">June 13, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 13</h4>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 13/28 of building a home assistant robot<br><br>- sidequesting at the hackathon today<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a href="https://t.co/aTeb4gIyFC">https://t.co/aTeb4gIyFC</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1933949280798261255?ref_src=twsrc%5Etfw">June 14, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 14</h4>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 14/28 of building a home assistant robot <br><br>- robot chassis parts are here!<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a href="https://t.co/wVtwJSCFYn">pic.twitter.com/wVtwJSCFYn</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1934299804567581021?ref_src=twsrc%5Etfw">June 15, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 15</h4>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 15/28 of building a home assistant robot <br><br>- trying to make the robot fetch me a coke<br>-played around with object detection today<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a href="https://t.co/T42O0hMHIa">pic.twitter.com/T42O0hMHIa</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1934736010895872078?ref_src=twsrc%5Etfw">June 16, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 16</h4>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 16/28 of building a home assistant robot<br><br>- setup aruco marker detection today for the coke bottles today<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a href="https://t.co/bMedTJz7KE">pic.twitter.com/bMedTJz7KE</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1935052619325878437?ref_src=twsrc%5Etfw">June 17, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 17</h4>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 17/28 of building a home assistant robot<br><br>- tried implementing inverse kinematics<br>- still figuring out the tech stack for picking and placing<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a href="https://t.co/budJE1DICS">pic.twitter.com/budJE1DICS</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1935417798538445142?ref_src=twsrc%5Etfw">June 18, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 18</h4>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 18/28 of building a home assistant robot<br><br>- decided to go the imitation learning route<br>- collected training data via teleop<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a href="https://t.co/KRA9O3ADJQ">pic.twitter.com/KRA9O3ADJQ</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1935796545712239018?ref_src=twsrc%5Etfw">June 19, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 19</h4>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 19/28 of building a home assistant robot<br><br>- got a new case for my raspi today <br>- tried to split the teleop script such that the follower arm runs on the pi while the leader arm is plugged into my laptop<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a href="https://t.co/bbWh2QhMws">pic.twitter.com/bbWh2QhMws</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1936211571384213596?ref_src=twsrc%5Etfw">June 20, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 20</h4>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 20/28 of building a home assistant robot<br><br>- I’m running into issues with battery management with the current chassis<br>- brainstormed about this and finalised a new chassis design<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1936467875046564027?ref_src=twsrc%5Etfw">June 21, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 21</h4>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 21/28 of building a home assistant robot <br> <br>- tried to setup websockets for communicating joint angles between raspi and my laptop<br>- will hopefully test it on the hardware tomorrow <br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1936902067425345652?ref_src=twsrc%5Etfw">June 22, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 22</h4>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 22/28 of building a home assistant robot<br><br>- the chassis is slowly coming together <br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a href="https://t.co/5FR0qcwXWq">pic.twitter.com/5FR0qcwXWq</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1937270696016548008?ref_src=twsrc%5Etfw">June 23, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 23</h4>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 23/28 of building a home assistant robot<br><br>- finished basic assembly of the entire robot<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a href="https://t.co/8usaFhskF0">pic.twitter.com/8usaFhskF0</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1937606928609562981?ref_src=twsrc%5Etfw">June 24, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 24</h4>
-<blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">day 24/28 of building a home assistant robot<br><br>[Update tweet content here]<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a></p>— Surabhi Gupta (@this_is_surabhi) <a href="[INSERT_DAY_24_TWEET_URL_HERE]?ref_src=twsrc%5Etfw">[DATE]</a></blockquote>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 25</h4>
-<blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">day 25/28 of building a home assistant robot<br><br>[Update tweet content here]<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a></p>— Surabhi Gupta (@this_is_surabhi) <a href="[INSERT_DAY_25_TWEET_URL_HERE]?ref_src=twsrc%5Etfw">[DATE]</a></blockquote>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 26</h4>
-<blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">day 26/28 of building a home assistant robot<br><br>[Update tweet content here]<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a></p>— Surabhi Gupta (@this_is_surabhi) <a href="[INSERT_DAY_26_TWEET_URL_HERE]?ref_src=twsrc%5Etfw">[DATE]</a></blockquote>
-</div>
-<div>
-<h4 class="text-lg font-bold mb-2">DAY 27</h4>
-<blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">day 27/28 of building a home assistant robot<br><br>[Update tweet content here]<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a></p>— Surabhi Gupta (@this_is_surabhi) <a href="[INSERT_DAY_27_TWEET_URL_HERE]?ref_src=twsrc%5Etfw">[DATE]</a></blockquote>
-</div>
-</div>
-</div>
-<div class="mt-24 border-t border-gray-400 dark:border-gray-600 pt-16">
-<h3 class="text-4xl font-bold mb-8">PROJECT PHASES</h3>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div class="bg-black dark:bg-white text-white dark:text-black border-2 rounded-xl border-black dark:border-white p-6">
-<h4 class="text-2xl font-bold mb-4">LEVEL 0</h4>
-<p class="text-sm uppercase tracking-widest mb-4">CURRENT VERSION</p>
-<p>Fully teleoperated. Control via keyboard and leader robot arm. No autonomy, no vision - just a solid working base.</p>
-</div>
-<div class="bg-white dark:bg-gray-800 border-2 rounded-xl border-black dark:border-gray-700 p-6">
-<h4 class="text-2xl font-bold mb-4">LEVEL 1</h4>
-<p class="text-sm uppercase tracking-widest mb-4">BASIC AUTONOMY</p>
-<p>LiDAR mapping, SLAM navigation, inverse kinematics, and basic presets like "grab" or "place."</p>
-</div>
-<div class="bg-white dark:bg-gray-800 border-2 rounded-xl border-black dark:border-gray-700 p-6">
-<h4 class="text-2xl font-bold mb-4">LEVEL 2</h4>
-<p class="text-sm uppercase tracking-widest mb-4">INTELLIGENT ROUTINES</p>
-<p>Computer vision, object recognition, voice control, and memory for complex tasks.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="specs" class="py-24 px-8 noise-bg">
-<div class="max-w-6xl mx-auto relative z-10">
-<h2 class="text-5xl font-bold mb-16">SPECS<span class="text-xs align-super"></span></h2>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-<div class="border-2 rounded-xl border-black p-6 bg-white dark:bg-gray-800 dark:border-gray-700">
-<h3 class="text-2xl font-bold mb-6 flex items-center gap-2"><i class="fas fa-microchip"></i>CORE</h3>
-<div class="space-y-3">
-<div class="flex justify-between border-b pb-2"><span class="font-bold">Brain</span><span>Raspberry Pi 5</span></div>
-<div class="flex justify-between border-b pb-2"><span class="font-bold">Controller</span><span>Arduino Uno</span></div>
-<div class="flex justify-between border-b pb-2"><span class="font-bold">Motor Driver</span><span>Cytron Motor Driver</span></div>
-<div class="flex justify-between border-b pb-2"><span class="font-bold">Power</span><span>12V Rechargeable Battery</span></div>
-<div class="flex justify-between border-b pb-2"><span class="font-bold">Sensors</span><span>Ultrasonic Sensors</span></div>
-<div class="flex justify-between border-b pb-2"><span class="font-bold">Perception</span><span>Camera</span></div>
-</div>
-</div>
-<div class="border-2 rounded-xl border-black p-6 bg-white dark:bg-gray-800 dark:border-gray-700">
-<h3 class="text-2xl font-bold mb-6 flex items-center gap-2"><i class="fas fa-robot"></i>MECHANICAL</h3>
-<div class="space-y-3">
-<div class="flex justify-between border-b pb-2"><span class="font-bold">Arm DOF</span><span>5 Degrees of Freedom</span></div>
-<div class="flex justify-between border-b pb-2"><span class="font-bold">Gripper</span><span>Two-finger Claw</span></div>
-<div class="flex justify-between border-b pb-2"><span class="font-bold">Mobility</span><span>4-Wheel Chassis</span></div>
-<div class="flex justify-between border-b pb-2"><span class="font-bold">Body Material</span><span>Powder-coated Aluminium</span></div>
-<div class="flex justify-between border-b pb-2"><span class="font-bold">Motors</span><span>STS3215 Servo Motors</span></div>
-<div class="flex justify-between border-b pb-2"><span class="font-bold">Connection</span><span>Wired (Wireless coming)</span></div>
-</div>
-</div>
-</div>
-<div class="bg-white dark:bg-gray-800 border-2 rounded-xl border-black dark:border-gray-700 text-black dark:text-white p-8 mb-16">
-<h3 class="text-3xl font-bold mb-6 flex items-center gap-2"><i class="fas fa-code"></i>SOFTWARE STACK</h3>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div>
-<h4 class="text-xl font-bold mb-4">CONTROL</h4>
-<ul class="space-y-2">
-<li>LeRobot Python SDK</li>
-<li>ROS 2 Navigation</li>
-<li>Keyboard Teleoperation</li>
-</ul>
-</div>
-<div>
-<h4 class="text-xl font-bold mb-4">UPCOMING</h4>
-<ul class="space-y-2">
-<li>SLAM Mapping</li>
-<li>Nav2 Autonomy</li>
-<li>Inverse Kinematics</li>
-</ul>
-</div>
-<div>
-<h4 class="text-xl font-bold mb-4">FUTURE</h4>
-<ul class="space-y-2">
-<li>Computer Vision</li>
-<li>Voice Control</li>
-<li>Memory System</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="faq" class="py-24 px-8 bg-gray-100 dark:bg-gray-800">
-<div class="max-w-6xl mx-auto">
-<h2 class="text-5xl font-bold mb-16">FAQ<span class="text-xs align-super"></span></h2>
-<div class="space-y-8">
-<div class="bg-white dark:bg-gray-800 border-2 rounded-xl border-black dark:border-gray-700 p-6">
-<h3 class="text-xl font-bold mb-4">Is Raven actually open source?</h3>
-<p>Absolutely! All hardware designs, software code, and build instructions will be available on GitHub. The goal is to create a community-driven platform for home robotics.</p>
-</div>
-<div class="bg-white dark:bg-gray-800 border-2 rounded-xl border-black dark:border-gray-700 p-6">
-<h3 class="text-xl font-bold mb-4">How much does it cost to build one?</h3>
-<p>The current BOM is around ₹20,000-40,000 (approximately $250-500 USD). We're working on a dev kit that we'll you updated about through Discord/X.</p>
-</div>
-<div class="bg-white dark:bg-gray-800 border-2 rounded-xl border-black dark:border-gray-700 p-6">
-<h3 class="text-xl font-bold mb-4">Can it actually find my glasses?</h3>
-<p>Not yet! The current Level 0 version is teleoperated only. Computer vision and object recognition are planned for Level 2, which will enable tasks like finding specific objects.</p>
-</div>
-<div class="bg-white dark:bg-gray-800 border-2 rounded-xl border-black dark:border-gray-700 p-6">
-<h3 class="text-xl font-bold mb-4">Is it safe around pets and children?</h3>
-<p>Safety is a priority. Raven has ultrasonic sensors that stop movement when obstacles are detected. However, the current version requires supervision, and we're continuously improving safety features.</p>
-</div>
-<div class="bg-white dark:bg-gray-800 border-2 rounded-xl border-black dark:border-gray-700 p-6">
-<h3 class="text-xl font-bold mb-4">When will the dev kit be available?</h3>
-<p>We're working on getting to Level 2 before we work on the dev kit. Join our Discord to get updates on availability and be among the first to know when pre-orders open!</p>
-</div>
-<div class="bg-white dark:bg-gray-800 border-2 rounded-xl border-black dark:border-gray-700 p-6">
-<h3 class="text-xl font-bold mb-4">Can I contribute to the project?</h3>
-<p>Yes! Whether you're into hardware, software, or just have ideas, there's room for contribution. Follow the GitHub repository and join our Discord community to get involved.</p>
-</div>
-<div class="bg-white dark:bg-gray-800 border-2 rounded-xl border-black dark:border-gray-700 p-6">
-<h3 class="text-xl font-bold mb-4">What programming experience do I need?</h3>
-<p>Basic Python knowledge is helpful for customization. The system uses ROS 2 and the LeRobot SDK, but we're working on making it accessible to non-programmers through simple configuration files.</p>
-</div>
-<div class="bg-white dark:bg-gray-800 border-2 rounded-xl border-black dark:border-gray-700 p-6">
-<h3 class="text-xl font-bold mb-4">Why build this instead of buying existing robots?</h3>
-<p>Most home robots are closed systems with limited customization. Raven is designed to be hackable, extensible, and affordable - a platform for learning and innovation rather than just a product.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="contact" class="py-24 px-8 bg-black dark:bg-gray-800 text-white">
-<div class="max-w-6xl mx-auto">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-<div>
-<h3 class="text-3xl font-bold mb-8">GET IN TOUCH</h3>
-<div class="space-y-6">
-<a href="mailto:surabhi.gupta1617@gmail.com" class="flex items-center gap-4 text-xl hover:underline"><i class="fas fa-envelope w-6"></i><span>surabhi.gupta1617@gmail.com</span></a>
-<a href="#" class="flex items-center gap-4 text-xl hover:underline"><i class="fab fa-discord w-6"></i><span>Join Discord Community</span></a>
-<a href="https://x.com/this_is_surabhi" class="flex items-center gap-4 text-xl hover:underline"><i class="fab fa-twitter w-6"></i><span>@this_is_surabhi</span></a>
-<a href="https://github.com/SurabhiGupta17" class="flex items-center gap-4 text-xl hover:underline"><i class="fab fa-github w-6"></i><span>github.com/SurabhiGupta17</span></a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<footer class="py-8 px-8 border-t border-gray-400 dark:border-gray-700">
-<div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
-<div class="mb-4 md:mb-0">
-<span class="text-xl font-bold tracking-normal">RAVEN</span>
-</div>
-<div class="flex items-center gap-6">
-<div class="text-xs text-gray-600 dark:text-gray-400 flex items-center gap-2">
-<span class="inline-block transform rotate-180 text-lg mb-2">©</span>
-<span>Copyright 2025 - Share, Adapt, Build.</span>
-</div>
-</div>
-</div>
-</footer>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<script>
-const darkModeToggle = document.getElementById('darkModeToggle');
-const html = document.documentElement;
-const tweets = document.querySelectorAll('.twitter-tweet');
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme) {
-html.classList.toggle('dark', savedTheme === 'dark');
-tweets.forEach(tweet => tweet.setAttribute('data-theme', savedTheme));
-}
-darkModeToggle.addEventListener('click', () => {
-html.classList.toggle('dark');
-localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
-tweets.forEach(tweet => {
-tweet.setAttribute('data-theme', html.classList.contains('dark') ? 'dark' : 'light');
-if (window.twttr) {
-window.twttr.widgets.load();
-}
-});
-});
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-anchor.addEventListener('click', function (e) {
-e.preventDefault();
-const target = document.querySelector(this.getAttribute('href'));
-if (target) {
-target.scrollIntoView({
-behavior: 'smooth',
-block: 'start'
-});
-}
-});
-});
-window.addEventListener('scroll', function() {
-const nav = document.querySelector('nav');
-if (window.scrollY > 100) {
-nav.style.backgroundColor = document.documentElement.classList.contains('dark') ? 'rgba(31, 41, 55, 0.95)' : 'rgba(255, 255, 255, 0.95)';
-nav.style.backdropFilter = 'blur(10px)';
-} else {
-nav.style.backgroundColor = document.documentElement.classList.contains('dark') ? 'rgba(31, 41, 55, 0.9)' : 'rgba(255, 255, 255, 0.9)';
-nav.style.backdropFilter = 'blur(2px)';
-}
-});
-</script>
+        </div>
+    </header>
+    <section id="problem" class="py-16 lg:py-24 px-4 lg:px-8 bg-white dark:bg-gray-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12 lg:mb-16">
+                <h2 class="text-4xl lg:text-6xl font-bold mb-8">THE PROBLEM<span class="text-xs align-super"></span>
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16">
+                <div class="lg:col-span-2">
+                    <div class="text-2xl lg:text-4xl font-bold mb-8 leading-tight">"I keep losing my glasses. Like,
+                        constantly."</div>
+                    <div class="space-y-6 text-base lg:text-lg">
+                        <p>It started simple. I just wanted a robot to find my glasses. Now it's growing into a mobile
+                            assistant that helps with everyday tasks — a companion robot that's open, hackable, and
+                            built to evolve.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="builder" class="py-16 lg:py-24 px-4 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12 lg:mb-16">
+                <h2 class="text-4xl lg:text-6xl font-bold mb-8">THE BUILDER<span class="text-xs align-super"></span>
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+                <div>
+                    <div class="text-2xl lg:text-3xl font-bold mb-6">Hi, I'm Surabhi</div>
+                    <div class="space-y-4 text-base lg:text-lg">
+                        <p>I'm an engineering undergrad who just wrapped up my third year. I've been obsessed with robot
+                            arms for a while now.</p>
+                        <p>I built my first one during <span class="font-bold">Buildspace Nights & Weekends S5</span>,
+                            which got me a <span class="font-bold">$5K grant</span>. That kicked off a string of
+                            projects, internships, and robots.</p>
+                        <p>This past month, I've been part of the <span class="font-bold">Localhost Fellowship</span>,
+                            building Raven during 28 days of beautiful chaos.</p>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="border-2 border-black rounded-xl p-6 bg-white dark:bg-gray-800 dark:border-gray-700">
+                        <h3 class="text-xl font-bold mb-4">THE JOURNEY</h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between border-b border-gray-300 dark:border-gray-600 pb-2">
+                                <span class="font-bold">Buildspace S5</span>
+                                <span>First robot arm + $5K grant</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-300 dark:border-gray-600 pb-2">
+                                <span class="font-bold">Multiple Projects</span>
+                                <span>Internships & experiments</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-300 dark:border-gray-600 pb-2">
+                                <span class="font-bold">Localhost Fellowship</span>
+                                <span>28 days of Raven</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-bold">Now</span>
+                                <span>Open sourcing everything</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-2 border-black rounded-xl p-6 bg-white dark:bg-gray-800 dark:border-gray-700">
+                        <h3 class="text-xl font-bold mb-4">FOLLOW THE JOURNEY</h3>
+                        <div class="space-y-3">
+                            <a href="https://x.com/this_is_surabhi"
+                                class="flex items-center gap-3 text-sm hover:underline"><i
+                                    class="fab fa-twitter"></i><span>@this_is_surabhi</span></a>
+                            <a href="https://github.com/SurabhiGupta17"
+                                class="flex items-center gap-3 text-sm hover:underline"><i
+                                    class="fab fa-github"></i><span>SurabhiGupta17</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-24 border-t border-gray-300 dark:border-gray-700 pt-16">
+                <h3 class="text-4xl font-bold mb-8">WHAT IS RAVEN?</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="border-2 rounded-xl border-black p-6 bg-white dark:bg-gray-800 dark:border-gray-700">
+                        <i class="fas fa-robot text-4xl mb-4"></i>
+                        <h4 class="text-xl font-bold mb-4">ROBOTIC ARM</h4>
+                        <p>5-DOF robot arm with two-finger claw gripper for precise manipulation</p>
+                    </div>
+                    <div class="border-2 rounded-xl border-black p-6 bg-white dark:bg-gray-800 dark:border-gray-700">
+                        <i class="fas fa-arrows-alt text-4xl mb-4"></i>
+                        <h4 class="text-xl font-bold mb-4">MOBILE BASE</h4>
+                        <p>Four-wheeled chassis that can navigate around your space</p>
+                    </div>
+                    <div class="border-2 rounded-xl border-black p-6 bg-white dark:bg-gray-800 dark:border-gray-700">
+                        <i class="fas fa-code-branch text-4xl mb-4"></i>
+                        <h4 class="text-xl font-bold mb-4">OPEN SOURCE</h4>
+                        <p>Built to be shared, modified, and improved by the community</p>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="mt-16 bg-white dark:bg-gray-800 dark:text-white border-2 rounded-xl border-black dark:border-gray-700 p-8">
+                <h3 class="text-3xl font-bold mb-6">WHAT RAVEN COULD DO (EVENTUALLY)</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="flex items-center gap-2"><i class="fas fa-glasses"></i><span>Find your glasses</span>
+                    </div>
+                    <div class="flex items-center gap-2"><i class="fas fa-coffee"></i><span>Fetch you a Coke</span>
+                    </div>
+                    <div class="flex items-center gap-2"><i class="fas fa-utensils"></i><span>Stir your drink</span>
+                    </div>
+                    <div class="flex items-center gap-2"><i class="fas fa-heart"></i><span>Feed you</span></div>
+                    <div class="flex items-center gap-2"><i class="fas fa-comments"></i><span>Talk to you</span></div>
+                    <div class="flex items-center gap-2"><i class="fas fa-shield-alt"></i><span>Watch over family</span>
+                    </div>
+                    <div class="flex items-center gap-2"><i class="fas fa-exclamation-triangle"></i><span>Fall
+                            detection</span></div>
+                    <div class="flex items-center gap-2"><i class="fas fa-broom"></i><span>Declutter your room</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="timeline" class="py-24 px-8 bg-gray-100 dark:bg-gray-800">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-5xl font-bold mb-16">THE 4-WEEK TIMELINE<span class="text-xs align-super"></span></h2>
+            <div
+                class="border-2 rounded-xl border-black dark:border-gray-700 bg-white dark:bg-gray-800 p-6 h-[900px] overflow-y-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 1</h4>
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">day 1/28 of building a home assistant robot<br><br>- set up a basic
+                                differential drive chassis in simulation<br>- gonna implement slam and navigation on sim
+                                till I get access to hardware<br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a
+                                    href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a
+                                    href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a
+                                    href="https://t.co/1YgAUmSDPk">pic.twitter.com/1YgAUmSDPk</a></p>&mdash; Surabhi
+                            Gupta (@this_is_surabhi) <a
+                                href="https://twitter.com/this_is_surabhi/status/1929623379130437663?ref_src=twsrc%5Etfw">June
+                                2, 2025</a>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 2</h4>
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">day 2/28 of building a home assistant robot <br><br>- set up the
+                                raspberry pi<br>- established comms between the raspi and my device<br>- plan is to run
+                                the heavy algorithms on my laptop and let the pi handle the lidar and motors <br><br>cc
+                                : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a
+                                    href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a
+                                    href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a
+                                    href="https://t.co/YZsIVzui2d">pic.twitter.com/YZsIVzui2d</a></p>&mdash; Surabhi
+                            Gupta (@this_is_surabhi) <a
+                                href="https://twitter.com/this_is_surabhi/status/1929898535669133580?ref_src=twsrc%5Etfw">June
+                                3, 2025</a>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 3</h4>
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">day 3/28 of building a home assistant robot<br><br>- lidar + driver
+                                configured and set up<br>- visualisation of lidar data in rviz <br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a
+                                    href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a
+                                    href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a
+                                    href="https://t.co/3hxPQ9TXVo">pic.twitter.com/3hxPQ9TXVo</a></p>&mdash; Surabhi
+                            Gupta (@this_is_surabhi) <a
+                                href="https://twitter.com/this_is_surabhi/status/1930273828674122102?ref_src=twsrc%5Etfw">June
+                                4, 2025</a>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 4</h4>
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">day 4/28 of building a home assistant robot<br><br>- set up lidar
+                                mapping (using slam toolbox)<br>- can’t wait to mount the lidar on the chassis and map
+                                the house<br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a
+                                    href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a
+                                    href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a
+                                    href="https://t.co/R7Tuq8jXux">pic.twitter.com/R7Tuq8jXux</a></p>&mdash; Surabhi
+                            Gupta (@this_is_surabhi) <a
+                                href="https://twitter.com/this_is_surabhi/status/1930639961835151532?ref_src=twsrc%5Etfw">June
+                                5, 2025</a>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 5</h4>
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">day 5/28 of building a home assistant robot<br><br>- till I wait for
+                                the hardware components to arrive, I am working on the simulation<br>- started work with
+                                the so101 arm urdf<br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a
+                                    href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a
+                                    href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a
+                                    href="https://t.co/ieQIvtMpXI">pic.twitter.com/ieQIvtMpXI</a></p>&mdash; Surabhi
+                            Gupta (@this_is_surabhi) <a
+                                href="https://twitter.com/this_is_surabhi/status/1931000519793009022?ref_src=twsrc%5Etfw">June
+                                6, 2025</a>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 6</h4>
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">day 6/28 of building a home assistant robot <br><br>- tried (and
+                                failed) to build a working moveit config for the urdf <br>- but hardware parts are
+                                here!!! s/o to <a
+                                    href="https://twitter.com/_1nF0rmed_?ref_src=twsrc%5Etfw">@_1nF0rmed_</a> for the
+                                recommendation<br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a
+                                    href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a
+                                    href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a
+                                    href="https://t.co/X57OzBgfTp">pic.twitter.com/X57OzBgfTp</a></p>&mdash; Surabhi
+                            Gupta (@this_is_surabhi) <a
+                                href="https://twitter.com/this_is_surabhi/status/1931441890303635751?ref_src=twsrc%5Etfw">June
+                                7, 2025</a>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 7</h4>
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">day 7/28 of building a home assistant robot <br><br>- finished
+                                assembly of the leader arm! <a
+                                    href="https://twitter.com/shourshot?ref_src=twsrc%5Etfw">@shourshot</a> and <a
+                                    href="https://twitter.com/habril27?ref_src=twsrc%5Etfw">@habril27</a> helped out
+                                when I got stuck :)<br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a
+                                    href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a
+                                    href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a
+                                    href="https://t.co/n1ykzH3Tk7">pic.twitter.com/n1ykzH3Tk7</a></p>&mdash; Surabhi
+                            Gupta (@this_is_surabhi) <a
+                                href="https://twitter.com/this_is_surabhi/status/1931791618153300327?ref_src=twsrc%5Etfw">June
+                                8, 2025</a>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 8</h4>
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">day 8/28 of building a home assistant robot<br><br>- completed
+                                assembly and wiring for both arms<br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a
+                                    href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a
+                                    href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a
+                                    href="https://t.co/usKkN4g7tj">pic.twitter.com/usKkN4g7tj</a></p>&mdash; Surabhi
+                            Gupta (@this_is_surabhi) <a
+                                href="https://twitter.com/this_is_surabhi/status/1932184953095434326?ref_src=twsrc%5Etfw">June
+                                9, 2025</a>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 9</h4>
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">day 9/28 of building a home assistant robot <br><br>- calibrated the
+                                robot arms<br>- teleoperation is functional!<br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a
+                                    href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a
+                                    href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a
+                                    href="https://t.co/ceLefO3knt">pic.twitter.com/ceLefO3knt</a></p>&mdash; Surabhi
+                            Gupta (@this_is_surabhi) <a
+                                href="https://twitter.com/this_is_surabhi/status/1932583652820660471?ref_src=twsrc%5Etfw">June
+                                10, 2025</a>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 10</h4>
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">day 10/28 of building a home assistant robot <br><br>- mounted the
+                                camera on the follower arm<br>- it’s been a slow day<br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a
+                                    href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a
+                                    href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a
+                                    href="https://t.co/y3Vj54e8Vs">pic.twitter.com/y3Vj54e8Vs</a></p>&mdash; Surabhi
+                            Gupta (@this_is_surabhi) <a
+                                href="https://twitter.com/this_is_surabhi/status/1932823069443428390?ref_src=twsrc%5Etfw">June
+                                11, 2025</a>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 11</h4>
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">day 11/28 of building a home assistant robot <br><br>- recalibrated
+                                the arms (properly this time)<br>- tried out teleop for basic tasks to get familiar with
+                                the system<br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a
+                                    href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a
+                                    href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a
+                                    href="https://t.co/ijtZWAjEr9">pic.twitter.com/ijtZWAjEr9</a></p>&mdash; Surabhi
+                            Gupta (@this_is_surabhi) <a
+                                href="https://twitter.com/this_is_surabhi/status/1933253997143728393?ref_src=twsrc%5Etfw">June
+                                12, 2025</a>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 12</h4>
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">day 12/28 of building a home assistant robot <br><br>- read about how
+                                to train the robot arm<br>- brainstormed cool task ideas with <a
+                                    href="https://twitter.com/k7agar?ref_src=twsrc%5Etfw">@k7agar</a> <br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a
+                                    href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a
+                                    href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a></p>
+                            &mdash; Surabhi Gupta (@this_is_surabhi) <a
+                                href="https://twitter.com/this_is_surabhi/status/1933637903470768515?ref_src=twsrc%5Etfw">June
+                                13, 2025</a>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 13</h4>
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">day 13/28 of building a home assistant robot<br><br>- sidequesting at
+                                the hackathon today<br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a
+                                    href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a
+                                    href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a
+                                    href="https://t.co/aTeb4gIyFC">https://t.co/aTeb4gIyFC</a></p>&mdash; Surabhi Gupta
+                            (@this_is_surabhi) <a
+                                href="https://twitter.com/this_is_surabhi/status/1933949280798261255?ref_src=twsrc%5Etfw">June
+                                14, 2025</a>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 14</h4>
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">day 14/28 of building a home assistant robot <br><br>- robot chassis
+                                parts are here!<br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a
+                                    href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a
+                                    href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a
+                                    href="https://t.co/wVtwJSCFYn">pic.twitter.com/wVtwJSCFYn</a></p>&mdash; Surabhi
+                            Gupta (@this_is_surabhi) <a
+                                href="https://twitter.com/this_is_surabhi/status/1934299804567581021?ref_src=twsrc%5Etfw">June
+                                15, 2025</a>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 15</h4>
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">day 15/28 of building a home assistant robot <br><br>- trying to make
+                                the robot fetch me a coke<br>-played around with object detection today<br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a
+                                    href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a
+                                    href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a
+                                    href="https://t.co/T42O0hMHIa">pic.twitter.com/T42O0hMHIa</a></p>&mdash; Surabhi
+                            Gupta (@this_is_surabhi) <a
+                                href="https://twitter.com/this_is_surabhi/status/1934736010895872078?ref_src=twsrc%5Etfw">June
+                                16, 2025</a>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 16</h4>
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">day 16/28 of building a home assistant robot<br><br>- setup aruco
+                                marker detection today for the coke bottles today<br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a
+                                    href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a
+                                    href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a
+                                    href="https://t.co/bMedTJz7KE">pic.twitter.com/bMedTJz7KE</a></p>&mdash; Surabhi
+                            Gupta (@this_is_surabhi) <a
+                                href="https://twitter.com/this_is_surabhi/status/1935052619325878437?ref_src=twsrc%5Etfw">June
+                                17, 2025</a>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 17</h4>
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">day 17/28 of building a home assistant robot<br><br>- tried
+                                implementing inverse kinematics<br>- still figuring out the tech stack for picking and
+                                placing<br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a
+                                    href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a
+                                    href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a
+                                    href="https://t.co/budJE1DICS">pic.twitter.com/budJE1DICS</a></p>&mdash; Surabhi
+                            Gupta (@this_is_surabhi) <a
+                                href="https://twitter.com/this_is_surabhi/status/1935417798538445142?ref_src=twsrc%5Etfw">June
+                                18, 2025</a>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 18</h4>
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">day 18/28 of building a home assistant robot<br><br>- decided to go
+                                the imitation learning route<br>- collected training data via teleop<br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a
+                                    href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a
+                                    href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a
+                                    href="https://t.co/KRA9O3ADJQ">pic.twitter.com/KRA9O3ADJQ</a></p>&mdash; Surabhi
+                            Gupta (@this_is_surabhi) <a
+                                href="https://twitter.com/this_is_surabhi/status/1935796545712239018?ref_src=twsrc%5Etfw">June
+                                19, 2025</a>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 19</h4>
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">day 19/28 of building a home assistant robot<br><br>- got a new case
+                                for my raspi today <br>- tried to split the teleop script such that the follower arm
+                                runs on the pi while the leader arm is plugged into my laptop<br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a
+                                    href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a
+                                    href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a
+                                    href="https://t.co/bbWh2QhMws">pic.twitter.com/bbWh2QhMws</a></p>&mdash; Surabhi
+                            Gupta (@this_is_surabhi) <a
+                                href="https://twitter.com/this_is_surabhi/status/1936211571384213596?ref_src=twsrc%5Etfw">June
+                                20, 2025</a>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 20</h4>
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">day 20/28 of building a home assistant robot<br><br>- I’m running
+                                into issues with battery management with the current chassis<br>- brainstormed about
+                                this and finalised a new chassis design<br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a
+                                    href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a
+                                    href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a></p>
+                            &mdash; Surabhi Gupta (@this_is_surabhi) <a
+                                href="https://twitter.com/this_is_surabhi/status/1936467875046564027?ref_src=twsrc%5Etfw">June
+                                21, 2025</a>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 21</h4>
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">day 21/28 of building a home assistant robot <br> <br>- tried to
+                                setup websockets for communicating joint angles between raspi and my laptop<br>- will
+                                hopefully test it on the hardware tomorrow <br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a
+                                    href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a
+                                    href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a></p>
+                            &mdash; Surabhi Gupta (@this_is_surabhi) <a
+                                href="https://twitter.com/this_is_surabhi/status/1936902067425345652?ref_src=twsrc%5Etfw">June
+                                22, 2025</a>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 22</h4>
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">day 22/28 of building a home assistant robot<br><br>- the chassis is
+                                slowly coming together <br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a
+                                    href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a
+                                    href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a
+                                    href="https://t.co/5FR0qcwXWq">pic.twitter.com/5FR0qcwXWq</a></p>&mdash; Surabhi
+                            Gupta (@this_is_surabhi) <a
+                                href="https://twitter.com/this_is_surabhi/status/1937270696016548008?ref_src=twsrc%5Etfw">June
+                                23, 2025</a>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 23</h4>
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">day 23/28 of building a home assistant robot<br><br>- finished basic
+                                assembly of the entire robot<br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a
+                                    href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a
+                                    href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a
+                                    href="https://t.co/8usaFhskF0">pic.twitter.com/8usaFhskF0</a></p>&mdash; Surabhi
+                            Gupta (@this_is_surabhi) <a
+                                href="https://twitter.com/this_is_surabhi/status/1937606928609562981?ref_src=twsrc%5Etfw">June
+                                24, 2025</a>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 24</h4>
+                        <blockquote class="twitter-tweet" data-theme="dark">
+                            <p lang="en" dir="ltr">day 24/28 of building a home assistant robot<br><br>[Update tweet
+                                content here]<br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a></p>—
+                            Surabhi Gupta (@this_is_surabhi) <a
+                                href="[INSERT_DAY_24_TWEET_URL_HERE]?ref_src=twsrc%5Etfw">[DATE]</a>
+                        </blockquote>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 25</h4>
+                        <blockquote class="twitter-tweet" data-theme="dark">
+                            <p lang="en" dir="ltr">day 25/28 of building a home assistant robot<br><br>[Update tweet
+                                content here]<br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a></p>—
+                            Surabhi Gupta (@this_is_surabhi) <a
+                                href="[INSERT_DAY_25_TWEET_URL_HERE]?ref_src=twsrc%5Etfw">[DATE]</a>
+                        </blockquote>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 26</h4>
+                        <blockquote class="twitter-tweet" data-theme="dark">
+                            <p lang="en" dir="ltr">day 26/28 of building a home assistant robot<br><br>[Update tweet
+                                content here]<br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a></p>—
+                            Surabhi Gupta (@this_is_surabhi) <a
+                                href="[INSERT_DAY_26_TWEET_URL_HERE]?ref_src=twsrc%5Etfw">[DATE]</a>
+                        </blockquote>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2">DAY 27</h4>
+                        <blockquote class="twitter-tweet" data-theme="dark">
+                            <p lang="en" dir="ltr">day 27/28 of building a home assistant robot<br><br>[Update tweet
+                                content here]<br><br>cc : <a
+                                    href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a></p>—
+                            Surabhi Gupta (@this_is_surabhi) <a
+                                href="[INSERT_DAY_27_TWEET_URL_HERE]?ref_src=twsrc%5Etfw">[DATE]</a>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-24 border-t border-gray-400 dark:border-gray-600 pt-16">
+                <h3 class="text-4xl font-bold mb-8">PROJECT PHASES</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div
+                        class="bg-black dark:bg-white text-white dark:text-black border-2 rounded-xl border-black dark:border-white p-6">
+                        <h4 class="text-2xl font-bold mb-4">LEVEL 0</h4>
+                        <p class="text-sm uppercase tracking-widest mb-4">CURRENT VERSION</p>
+                        <p>Fully teleoperated. Control via keyboard and leader robot arm. No autonomy, no vision - just
+                            a solid working base.</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 border-2 rounded-xl border-black dark:border-gray-700 p-6">
+                        <h4 class="text-2xl font-bold mb-4">LEVEL 1</h4>
+                        <p class="text-sm uppercase tracking-widest mb-4">BASIC AUTONOMY</p>
+                        <p>LiDAR mapping, SLAM navigation, inverse kinematics, and basic presets like "grab" or "place."
+                        </p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 border-2 rounded-xl border-black dark:border-gray-700 p-6">
+                        <h4 class="text-2xl font-bold mb-4">LEVEL 2</h4>
+                        <p class="text-sm uppercase tracking-widest mb-4">INTELLIGENT ROUTINES</p>
+                        <p>Computer vision, object recognition, voice control, and memory for complex tasks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="specs" class="py-24 px-8 noise-bg">
+        <div class="max-w-6xl mx-auto relative z-10">
+            <h2 class="text-5xl font-bold mb-16">SPECS<span class="text-xs align-super"></span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <div class="border-2 rounded-xl border-black p-6 bg-white dark:bg-gray-800 dark:border-gray-700">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-2"><i class="fas fa-microchip"></i>CORE
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between border-b pb-2"><span
+                                class="font-bold">Brain</span><span>Raspberry Pi 5</span></div>
+                        <div class="flex justify-between border-b pb-2"><span
+                                class="font-bold">Controller</span><span>Arduino Uno</span></div>
+                        <div class="flex justify-between border-b pb-2"><span class="font-bold">Motor
+                                Driver</span><span>Cytron Motor Driver</span></div>
+                        <div class="flex justify-between border-b pb-2"><span class="font-bold">Power</span><span>12V
+                                Rechargeable Battery</span></div>
+                        <div class="flex justify-between border-b pb-2"><span
+                                class="font-bold">Sensors</span><span>Ultrasonic Sensors</span></div>
+                        <div class="flex justify-between border-b pb-2"><span
+                                class="font-bold">Perception</span><span>Camera</span></div>
+                    </div>
+                </div>
+                <div class="border-2 rounded-xl border-black p-6 bg-white dark:bg-gray-800 dark:border-gray-700">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-2"><i class="fas fa-robot"></i>MECHANICAL
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between border-b pb-2"><span class="font-bold">Arm DOF</span><span>5
+                                Degrees of Freedom</span></div>
+                        <div class="flex justify-between border-b pb-2"><span
+                                class="font-bold">Gripper</span><span>Two-finger Claw</span></div>
+                        <div class="flex justify-between border-b pb-2"><span
+                                class="font-bold">Mobility</span><span>4-Wheel Chassis</span></div>
+                        <div class="flex justify-between border-b pb-2"><span class="font-bold">Body
+                                Material</span><span>Powder-coated Aluminium</span></div>
+                        <div class="flex justify-between border-b pb-2"><span
+                                class="font-bold">Motors</span><span>STS3215 Servo Motors</span></div>
+                        <div class="flex justify-between border-b pb-2"><span
+                                class="font-bold">Connection</span><span>Wired (Wireless coming)</span></div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="bg-white dark:bg-gray-800 border-2 rounded-xl border-black dark:border-gray-700 text-black dark:text-white p-8 mb-16">
+                <h3 class="text-3xl font-bold mb-6 flex items-center gap-2"><i class="fas fa-code"></i>SOFTWARE STACK
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="text-xl font-bold mb-4">CONTROL</h4>
+                        <ul class="space-y-2">
+                            <li>LeRobot Python SDK</li>
+                            <li>ROS 2 Navigation</li>
+                            <li>Keyboard Teleoperation</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-4">UPCOMING</h4>
+                        <ul class="space-y-2">
+                            <li>SLAM Mapping</li>
+                            <li>Nav2 Autonomy</li>
+                            <li>Inverse Kinematics</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-4">FUTURE</h4>
+                        <ul class="space-y-2">
+                            <li>Computer Vision</li>
+                            <li>Voice Control</li>
+                            <li>Memory System</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="faq" class="py-24 px-8 bg-gray-100 dark:bg-gray-800">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-5xl font-bold mb-16">FAQ<span class="text-xs align-super"></span></h2>
+            <div class="space-y-8">
+                <div class="bg-white dark:bg-gray-800 border-2 rounded-xl border-black dark:border-gray-700 p-6">
+                    <h3 class="text-xl font-bold mb-4">Is Raven actually open source?</h3>
+                    <p>Absolutely! All hardware designs, software code, and build instructions will be available on
+                        GitHub. The goal is to create a community-driven platform for home robotics.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 border-2 rounded-xl border-black dark:border-gray-700 p-6">
+                    <h3 class="text-xl font-bold mb-4">How much does it cost to build one?</h3>
+                    <p>The current BOM is around ₹20,000-40,000 (approximately $250-500 USD). We're working on a dev kit
+                        that we'll you updated about through Discord/X.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 border-2 rounded-xl border-black dark:border-gray-700 p-6">
+                    <h3 class="text-xl font-bold mb-4">Can it actually find my glasses?</h3>
+                    <p>Not yet! The current Level 0 version is teleoperated only. Computer vision and object recognition
+                        are planned for Level 2, which will enable tasks like finding specific objects.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 border-2 rounded-xl border-black dark:border-gray-700 p-6">
+                    <h3 class="text-xl font-bold mb-4">Is it safe around pets and children?</h3>
+                    <p>Safety is a priority. Raven has ultrasonic sensors that stop movement when obstacles are
+                        detected. However, the current version requires supervision, and we're continuously improving
+                        safety features.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 border-2 rounded-xl border-black dark:border-gray-700 p-6">
+                    <h3 class="text-xl font-bold mb-4">When will the dev kit be available?</h3>
+                    <p>We're working on getting to Level 2 before we work on the dev kit. Join our Discord to get
+                        updates on availability and be among the first to know when pre-orders open!</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 border-2 rounded-xl border-black dark:border-gray-700 p-6">
+                    <h3 class="text-xl font-bold mb-4">Can I contribute to the project?</h3>
+                    <p>Yes! Whether you're into hardware, software, or just have ideas, there's room for contribution.
+                        Follow the GitHub repository and join our Discord community to get involved.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 border-2 rounded-xl border-black dark:border-gray-700 p-6">
+                    <h3 class="text-xl font-bold mb-4">What programming experience do I need?</h3>
+                    <p>Basic Python knowledge is helpful for customization. The system uses ROS 2 and the LeRobot SDK,
+                        but we're working on making it accessible to non-programmers through simple configuration files.
+                    </p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 border-2 rounded-xl border-black dark:border-gray-700 p-6">
+                    <h3 class="text-xl font-bold mb-4">Why build this instead of buying existing robots?</h3>
+                    <p>Most home robots are closed systems with limited customization. Raven is designed to be hackable,
+                        extensible, and affordable - a platform for learning and innovation rather than just a product.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="py-24 px-8 bg-black dark:bg-gray-800 text-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div>
+                    <h3 class="text-3xl font-bold mb-8">GET IN TOUCH</h3>
+                    <div class="space-y-6">
+                        <a href="mailto:surabhi.gupta1617@gmail.com"
+                            class="flex items-center gap-4 text-xl hover:underline"><i
+                                class="fas fa-envelope w-6"></i><span>surabhi.gupta1617@gmail.com</span></a>
+                        <a href="#" class="flex items-center gap-4 text-xl hover:underline"><i
+                                class="fab fa-discord w-6"></i><span>Join Discord Community</span></a>
+                        <a href="https://x.com/this_is_surabhi"
+                            class="flex items-center gap-4 text-xl hover:underline"><i
+                                class="fab fa-twitter w-6"></i><span>@this_is_surabhi</span></a>
+                        <a href="https://github.com/SurabhiGupta17"
+                            class="flex items-center gap-4 text-xl hover:underline"><i
+                                class="fab fa-github w-6"></i><span>github.com/SurabhiGupta17</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="py-8 px-8 border-t border-gray-400 dark:border-gray-700">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="text-xl font-bold tracking-normal">RAVEN</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <div class="text-xs text-gray-600 dark:text-gray-400 flex items-center gap-2">
+                    <span class="inline-block transform rotate-180 text-lg mb-2">©</span>
+                    <span>Copyright 2025 - Share, Adapt, Build.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+        const tweets = document.querySelectorAll('.twitter-tweet');
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            html.classList.toggle('dark', savedTheme === 'dark');
+            tweets.forEach(tweet => tweet.setAttribute('data-theme', savedTheme));
+        }
+        darkModeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+            tweets.forEach(tweet => {
+                tweet.setAttribute('data-theme', html.classList.contains('dark') ? 'dark' : 'light');
+                if (window.twttr) {
+                    window.twttr.widgets.load();
+                }
+            });
+        });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        window.addEventListener('scroll', function () {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.backgroundColor = document.documentElement.classList.contains('dark') ? 'rgba(31, 41, 55, 0.95)' : 'rgba(255, 255, 255, 0.95)';
+                nav.style.backdropFilter = 'blur(10px)';
+            } else {
+                nav.style.backgroundColor = document.documentElement.classList.contains('dark') ? 'rgba(31, 41, 55, 0.9)' : 'rgba(255, 255, 255, 0.9)';
+                nav.style.backdropFilter = 'blur(2px)';
+            }
+        });
+    </script>
 </body>
+
 </html>
