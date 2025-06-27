@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RAVEN | Robotic Assistant for Versatile Everyday Needs</title>
-    <meta name="description" content="Meet Raven - the open-source home assistant robot built in 28 days. A 5-DOF robotic arm on wheels that started with lost glasses and evolved into something bigger.">
+    <meta name="description"
+        content="Meet Raven - the open-source home assistant robot built in 28 days. A 5-DOF robotic arm on wheels that started with lost glasses and evolved into something bigger.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://openraven.tech/">
     <meta property="og:title" content="RAVEN | Robotic Assistant for Versatile Everyday Needs">
-    <meta property="og:description" content="Meet Raven - the open-source home assistant robot built in 28 days. A 5-DOF robotic arm on wheels that evolved into something bigger.">
-    
+    <meta property="og:description"
+        content="Meet Raven - the open-source home assistant robot built in 28 days. A 5-DOF robotic arm on wheels that evolved into something bigger.">
+
+
+    <link rel="icon" type="image/png" href="https://openraven.tech/images/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="https://openraven.tech/images/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="https://openraven.tech/images/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://openraven.tech/images/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="RAVEN" />
+    <link rel="manifest" href="https://openraven.tech/images/favicon/site.webmanifest" />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -30,18 +41,19 @@
             },
         };
     </script>
-    
+
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="bg-white text-raven-black font-mono overflow-x-hidden" id="app">
     <!-- Desktop Navigation -->
-    <nav class="hidden md:block fixed w-full px-8 py-6 flex justify-between items-center z-50 bg-white/90 backdrop-blur-sm transition-all duration-300">
+    <nav
+        class="hidden md:block fixed w-full px-8 py-6 flex justify-between items-center z-50 bg-white/90 backdrop-blur-sm transition-all duration-300">
         <div class="flex gap-12 items-center justify-center text-sm font-medium">
             <a href="#story" class="hover:text-raven-gray transition-colors">Story</a>
             <a href="#evolution" class="hover:text-raven-gray transition-colors">Evolution</a>
             <a href="#specs" class="hover:text-raven-gray transition-colors">Specs</a>
-            <a href="#community" class="hover:text-raven-gray transition-colors">Community</a>
+            <a href="#faq" class="hover:text-raven-gray transition-colors">FAQ</a>
         </div>
     </nav>
 
@@ -60,9 +72,9 @@
                 <i class="fas fa-cog text-sm"></i>
                 <span class="text-xs">Specs</span>
             </a>
-            <a href="#community" class="flex flex-col items-center gap-1 p-2">
-                <i class="fas fa-users text-sm"></i>
-                <span class="text-xs">Community</span>
+            <a href="#faq" class="flex flex-col items-center gap-1 p-2">
+                <i class="fas fa-question-mark text-sm"></i>
+                <span class="text-xs">FAQ</span>
             </a>
             <a href="mailto:surabhi.gupta1617@gmail.com" class="flex flex-col items-center gap-1 p-2">
                 <i class="fas fa-envelope text-sm"></i>
@@ -76,161 +88,176 @@
         <div class="max-w-5xl mx-auto text-center">
             <!-- Main Title -->
             <div class="mb-16">
-                
-                <h1 class="text-6xl md:text-8xl font-bold mb-8 mt-24 tracking-tight inline-block relative"><i class="fas fa-crow text-5xl absolute -top-9 left-12"></i>RAVEN</h1>
-                <p class="text-lg text-raven-gray font-medium tracking-widest uppercase mb-8">
+
+                <h1 class="text-6xl md:text-8xl font-bold mb-8 mt-24 tracking-tight inline-block relative">
+                    <img src="images/raven-logo.png" alt="RAVEN" class="w-96" />
+                </h1>
+                <p class="text-lg text-raven-gray font-medium tracking-widest uppercase mb-8 -mt-2">
                     Robotic Assistant for Versatile Everyday Needs
                 </p>
                 <div class="w-24 h-px bg-raven-black mx-auto"></div>
             </div>
-            
+
             <!-- Hero Description -->
             <div class="max-w-3xl mx-auto mb-20">
-                <p class="text-xl md:text-2xl text-raven-gray leading-relaxed mb-8">
-                    The open-source home assistant robot that started with lost glasses 
-                    and evolved into something extraordinary.
-                </p>
-                <p class="text-raven-gray">
-                    Built in 28 days by Surabhi during the Localhost Fellowship.
+                <p class="text-xl md:text-2xl text-black leading-relaxed mb-8">
+                    The open-source home assistant robot that started with lost glasses
+                    and evolved into something bigger.
                 </p>
             </div>
-            
+
             <!-- Hero Media Placeholder -->
             <div class="mb-20">
-                <div class="bg-raven-light border border-gray-200 rounded-lg p-16 text-center">
-                    <i class="fas fa-play-circle text-6xl text-raven-gray mb-4"></i>
-                    <p class="text-raven-gray">Hero Video/Image Placeholder</p>
-                    <p class="text-sm text-gray-400 mt-2">Surabhi's RAVEN introduction video will go here</p>
+                <div class="bg-raven-light border border-gray-200 rounded-lg text-center relative overflow-hidden rounded-xl">
+                    <video class="w-full" autoplay="" playsinline="" class="" muted="" loop="">
+                        <source src="videos/raven-drink-pass.mp4" type="video/mp4">
+                    </video>
+                    <p class="text-sm text-white mt-2 absolute bottom-5 right-5">RAVEN passing a drink</p>
                 </div>
             </div>
-            
+
             <!-- CTA -->
             <div class="flex flex-col md:flex-row gap-6 justify-center items-center mb-32">
-                <a href="#story" class="bg-raven-black text-white px-8 py-3 rounded font-medium hover:bg-raven-gray transition-colors">
+                <a href="#story"
+                    class="bg-raven-black text-white px-8 py-3 rounded-lg font-medium hover:bg-raven-gray transition-colors">
                     Discover the Story
                 </a>
-                <a href="#" class="text-raven-black border border-raven-black px-8 py-3 rounded font-medium hover:bg-raven-black hover:text-white transition-colors">
+                <a href="#"
+                    class="text-raven-black border border-raven-black px-8 py-3 rounded-lg font-medium hover:bg-raven-black hover:text-white transition-colors">
                     Join Community
                 </a>
             </div>
         </div>
-        
+
         <!-- Scroll Indicator -->
-        <div class="text-center hidden md:block">
+        <div class="text-center md:block">
             <div class="w-px h-16 bg-gray-200 mx-auto mb-4"></div>
             <div class="text-xs text-gray-400 uppercase tracking-widest">Scroll</div>
         </div>
     </section>
 
     <!-- Story Section -->
-    <section id="story" class="py-32 px-8 mb-20 md:mb-0">
+    <section id="story" class="md:py-32 py-16 pb-0 px-8 mb-20 md:mb-0">
         <div class="max-w-4xl mx-auto">
             <!-- Section Header -->
             <div class="text-center mb-24">
-                <h2 class="text-4xl md:text-6xl font-bold mb-8">The Story</h2>
-                <div class="w-16 h-px bg-raven-black mx-auto"></div>
+                <h2 class="text-4xl md:text-6xl font-bold mb-8">Hi, I'm Surabhi</h2>
+                <div class="bg-raven-light border overflow-hidden rounded-lg text-center mb-12 max-w-sm mx-auto">
+                    <img src="images/surabhi.jpg" alt="Surabhi G." class="w-256" />
+                </div>
             </div>
-            
+
             <!-- The Problem -->
             <div class="mb-32">
                 <div class="text-center mb-16">
-                    <blockquote class="text-2xl md:text-3xl font-medium text-raven-black mb-8 leading-relaxed">
+                    <blockquote class="text-2xl md:text-3xl font-medium text-raven-black mb-16 leading-relaxed">
                         "I keep losing my glasses. Like, constantly."
                     </blockquote>
-                    <p class="text-lg text-raven-gray max-w-2xl mx-auto leading-relaxed">
-                        It started simple. Surabhi just wanted a robot to find her glasses. 
-                        But ideas have a way of growing into something bigger.
+                    <!-- Problem Visual Placeholder -->
+                    <div class="p-5 relative border border-gray-200 rounded-lg text-center grayscale max-w-xs mx-auto">
+                        <img class="w-full" src="images/surabhi-glasses.jpg" alt="Suabhi with RAVEN and her glasses" />
+                    </div>
+                    <p class="text-lg mt-10 text-raven-gray max-w-2xl mx-auto leading-relaxed">
+                        It started simple. I just wanted a robot to find my glasses. Now it's growing into a mobile
+                        assistant that helps with everyday tasks — a companion robot that's open, hackable, and built to
+                        evolve.
                     </p>
                 </div>
-                
-                <!-- Problem Visual Placeholder -->
-                <div class="bg-raven-light border border-gray-200 rounded-lg p-12 text-center">
-                    <i class="fas fa-image text-4xl text-raven-gray mb-4"></i>
-                    <p class="text-raven-gray">Problem Illustration Placeholder</p>
-                    <p class="text-sm text-gray-400 mt-2">Image/video showing the "lost glasses" problem</p>
-                </div>
             </div>
-            
+
             <!-- The Builder -->
             <div class="mb-32">
-                <h3 class="text-3xl font-bold mb-12 text-center">Meet Surabhi</h3>
-                
-                <!-- Builder Photo Placeholder -->
-                <div class="bg-raven-light border border-gray-200 rounded-lg p-12 text-center mb-12">
-                    <i class="fas fa-user-circle text-6xl text-raven-gray mb-4"></i>
-                    <p class="text-raven-gray">Surabhi Photo Placeholder</p>
-                    <p class="text-sm text-gray-400 mt-2">Professional photo of Surabhi with RAVEN</p>
-                </div>
-                
-                <div class="space-y-8 text-lg text-raven-gray leading-relaxed">
-                    <p>
-                        An engineering undergrad who just wrapped up her third year, 
-                        Surabhi has been obsessed with robot arms for years. Her journey 
-                        is proof that sometimes the best innovations come from pure curiosity.
-                    </p>
-                    <p>
-                        During <span class="text-raven-black font-medium">Buildspace Nights & Weekends S5</span>, 
-                        she built her first robot arm and earned a <span class="text-raven-black font-medium">$5K grant</span>. 
-                        That success sparked a chain reaction of projects and experiments.
-                    </p>
-                    <p>
-                        Most recently, as part of the <span class="text-raven-black font-medium">Localhost Fellowship</span>, 
-                        she dedicated 28 intense days to bringing RAVEN to life.
-                    </p>
-                </div>
-                
-                <!-- Social Links -->
-                <div class="flex justify-center gap-8 mt-16">
-                    <a href="https://x.com/this_is_surabhi" class="text-gray-400 hover:text-raven-black transition-colors">
-                        <i class="fab fa-twitter text-xl"></i>
-                    </a>
-                    <a href="https://github.com/SurabhiGupta17" class="text-gray-400 hover:text-raven-black transition-colors">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+                    <div class="space-y-8 text-lg text-black leading-relaxed">
+
+                        <p>I'm an engineering undergrad who just wrapped up my third year. I've been obsessed with robot
+                            arms for a while now.</p>
+                        <p>I built my first one during <span class="font-bold">Buildspace Nights &amp; Weekends
+                                S5</span>,
+                            which got me a <span class="font-bold">$5K grant</span>. That kicked off a string of
+                            projects,
+                            internships, and robots.</p>
+                        <p>This past month, I've been part of the <span class="font-bold">Localhost Fellowship</span>,
+                            building Raven during 28 days of beautiful chaos.</p>
+
+                    </div>
+                    <div class="space-y-6">
+                        <div class="border-2 border-black rounded-xl p-6 bg-white dark:border-gray-700">
+                            <h3 class="text-xl font-bold mb-4">THE JOURNEY</h3>
+                            <div class="space-y-3 text-sm">
+                                <div class="flex justify-between border-b border-gray-300 pb-2">
+                                    <span class="font-bold">Buildspace S5</span>
+                                    <span>First robot arm + $5K grant</span>
+                                </div>
+                                <div class="flex justify-between border-b border-gray-300 pb-2">
+                                    <span class="font-bold">Multiple Projects</span>
+                                    <span>Internships &amp; experiments</span>
+                                </div>
+                                <div class="flex justify-between border-b border-gray-300 pb-2">
+                                    <span class="font-bold">Localhost Fellowship</span>
+                                    <span>28 days of Raven</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="font-bold">Now</span>
+                                    <span>Open sourcing everything</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-2 border-black rounded-xl p-6 bg-white ">
+                            <h3 class="text-xl font-bold mb-4">FOLLOW THE JOURNEY</h3>
+                            <div class="space-y-3">
+                                <a href="https://x.com/this_is_surabhi"
+                                    class="flex items-center gap-3 text-sm hover:underline"><svg
+                                        class="svg-inline--fa fa-twitter" aria-hidden="true" focusable="false"
+                                        data-prefix="fab" data-icon="twitter" role="img"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                                        <path fill="currentColor"
+                                            d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z">
+                                        </path>
+                                    </svg><!-- <i class="fab fa-twitter"></i> Font Awesome fontawesome.com --><span>@this_is_surabhi</span></a>
+                                <a href="https://github.com/SurabhiGupta17"
+                                    class="flex items-center gap-3 text-sm hover:underline"><svg
+                                        class="svg-inline--fa fa-github" aria-hidden="true" focusable="false"
+                                        data-prefix="fab" data-icon="github" role="img"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg="">
+                                        <path fill="currentColor"
+                                            d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
+                                        </path>
+                                    </svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com --><span>SurabhiGupta17</span></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
+
             <!-- What is RAVEN -->
             <div class="text-center">
                 <h3 class="text-3xl font-bold mb-16">What is RAVEN?</h3>
-                
+
                 <!-- RAVEN Overview Video Placeholder -->
-                <div class="bg-raven-light border border-gray-200 rounded-lg p-16 text-center mb-16">
-                    <i class="fas fa-video text-6xl text-raven-gray mb-4"></i>
-                    <p class="text-raven-gray">RAVEN Overview Video Placeholder</p>
-                    <p class="text-sm text-gray-400 mt-2">Complete RAVEN demo and capabilities showcase</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-10 overflow-x-hidden">
+                    <div class="bg-raven-light border border-gray-200 rounded-xl overflow-hidden text-center relative max-w-md mx-auto">
+                            <video class="w-full" autoplay="" playsinline="" class="" muted="" loop="">
+                                <source src="videos/raven-stirring-chai.mp4" type="video/mp4">
+                            </video>
+                            <p class="text-sm text-white mt-2 absolute bottom-5 right-5">RAVEN stirring chai</p>
+                        </div>
+                        <div>
+                            <div class="border-2 rounded-xl border-black p-6 bg-white 0">
+                    <svg class="svg-inline--fa fa-robot text-4xl mb-4" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="robot" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" data-fa-i2svg=""><path fill="currentColor" d="M320 0c17.7 0 32 14.3 32 32V96H472c39.8 0 72 32.2 72 72V440c0 39.8-32.2 72-72 72H168c-39.8 0-72-32.2-72-72V168c0-39.8 32.2-72 72-72H288V32c0-17.7 14.3-32 32-32zM208 384c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H208zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H304zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H400zM264 256a40 40 0 1 0 -80 0 40 40 0 1 0 80 0zm152 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80zM48 224H64V416H48c-26.5 0-48-21.5-48-48V272c0-26.5 21.5-48 48-48zm544 0c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H576V224h16z"></path></svg><!-- <i class="fas fa-robot text-4xl mb-4"></i> Font Awesome fontawesome.com -->
+                    <h4 class="text-md font-bold mb-4">ROBOTIC ARM</h4>
+                    <p>5-DOF robot arm with two-finger claw gripper for precise manipulation</p>
+                    </div>
+                    <div class="border-2 rounded-xl border-black p-6 bg-white mt-6">
+                    <svg class="svg-inline--fa fa-up-down-left-right text-4xl mb-4" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="up-down-left-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M278.6 9.4c-12.5-12.5-32.8-12.5-45.3 0l-64 64c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8h32v96H128V192c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9l-64 64c-12.5 12.5-12.5 32.8 0 45.3l64 64c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V288h96v96H192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l64 64c12.5 12.5 32.8 12.5 45.3 0l64-64c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8H288V288h96v32c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l64-64c12.5-12.5 12.5-32.8 0-45.3l-64-64c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6v32H288V128h32c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-64-64z"></path></svg><!-- <i class="fas fa-arrows-alt text-4xl mb-4"></i> Font Awesome fontawesome.com -->
+                    <h4 class="text-md font-bold mb-4">MOBILE BASE</h4>
+                    <p>Four-wheeled chassis that can navigate around your space</p>
+                    </div>
+                    
+                        </div>
                 </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-24">
-                    <div class="text-center">
-                        <div class="w-12 h-12 mx-auto mb-6 bg-raven-light rounded flex items-center justify-center">
-                            <i class="fas fa-robot text-raven-black"></i>
-                        </div>
-                        <h4 class="font-bold mb-4">5-DOF Robotic Arm</h4>
-                        <p class="text-raven-gray text-sm leading-relaxed">
-                            Precise manipulation with a two-finger claw gripper
-                        </p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-12 h-12 mx-auto mb-6 bg-raven-light rounded flex items-center justify-center">
-                            <i class="fas fa-arrows-alt text-raven-black"></i>
-                        </div>
-                        <h4 class="font-bold mb-4">Mobile Platform</h4>
-                        <p class="text-raven-gray text-sm leading-relaxed">
-                            Four-wheeled chassis for smooth navigation
-                        </p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-12 h-12 mx-auto mb-6 bg-raven-light rounded flex items-center justify-center">
-                            <i class="fas fa-code-branch text-raven-black"></i>
-                        </div>
-                        <h4 class="font-bold mb-4">Open Source</h4>
-                        <p class="text-raven-gray text-sm leading-relaxed">
-                            Built to be shared, modified, and improved
-                        </p>
-                    </div>
-                </div>
-                
+            
+
                 <!-- Future Capabilities -->
                 <div class="bg-raven-light p-12 rounded">
                     <h4 class="text-2xl font-bold mb-8 uppercase">Future Capabilities</h4>
@@ -274,290 +301,314 @@
     </section>
 
     <!-- Evolution Timeline Section -->
-    <section id="evolution" class="py-32 px-8 bg-raven-light mb-20 md:mb-0">
+    <section id="evolution" class="md:py-32 py-16 pb-0 px-8 bg-raven-light mb-20 md:mb-0">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-24">
                 <h2 class="text-4xl md:text-6xl font-bold mb-8">The Evolution</h2>
                 <p class="text-lg text-raven-gray max-w-2xl mx-auto mb-8">
-                    Follow Surabhi's 28-day journey from concept to creation.
+                    My 28-day journey, from concept to the creation of RAVEN!
                 </p>
                 <div class="w-16 h-px bg-raven-black mx-auto"></div>
             </div>
-            
+
             <!-- Timeline Media Gallery Placeholder -->
-            <div class="bg-white border border-gray-200 rounded-lg p-12 text-center mb-16">
+            <div class="hidden bg-white border border-gray-200 rounded-lg p-12 text-center mb-16">
                 <i class="fas fa-images text-6xl text-raven-gray mb-4"></i>
                 <p class="text-raven-gray">Timeline Media Gallery Placeholder</p>
                 <p class="text-sm text-gray-400 mt-2">Photo/video progression showing daily builds</p>
             </div>
-            
+
             <!-- Timeline Container -->
-            <div class="bg-white border border-gray-200 rounded-lg p-8 mb-16 max-h-96 overflow-y-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Day 1 -->
-                    <div class="border-l-2 border-raven-black pl-6">
-                        <h4 class="font-bold mb-2 text-raven-black">Day 1</h4>
-                        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 1/28 of building a home assistant robot<br><br>- set up a basic differential drive chassis in simulation<br>- gonna implement slam and navigation on sim till I get access to hardware<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a href="https://t.co/1YgAUmSDPk">pic.twitter.com/1YgAUmSDPk</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1929623379130437663?ref_src=twsrc%5Etfw">June 2, 2025</a></blockquote>
-                    </div>
-                    
-                    <!-- Day 7 -->
-                    <div class="border-l-2 border-raven-gray pl-6">
-                        <h4 class="font-bold mb-2 text-raven-black">Day 7</h4>
-                        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 7/28 of building a home assistant robot <br><br>- finished assembly of the leader arm! <a href="https://twitter.com/shourshot?ref_src=twsrc%5Etfw">@shourshot</a> and <a href="https://twitter.com/habril27?ref_src=twsrc%5Etfw">@habril27</a> helped out when I got stuck :)<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a href="https://t.co/n1ykzH3Tk7">pic.twitter.com/n1ykzH3Tk7</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1931791618153300327?ref_src=twsrc%5Etfw">June 8, 2025</a></blockquote>
-                    </div>
-                    
-                    <!-- Day 14 -->
-                    <div class="border-l-2 border-raven-black pl-6">
-                        <h4 class="font-bold mb-2 text-raven-black">Day 14</h4>
-                        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 14/28 of building a home assistant robot <br><br>- robot chassis parts are here!<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a href="https://t.co/wVtwJSCFYn">pic.twitter.com/wVtwJSCFYn</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1934299804567581021?ref_src=twsrc%5Etfw">June 15, 2025</a></blockquote>
-                    </div>
-                    
-                    <!-- Day 23 -->
-                    <div class="border-l-2 border-raven-gray pl-6">
-                        <h4 class="font-bold mb-2 text-raven-black">Day 23</h4>
-                        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">day 23/28 of building a home assistant robot<br><br>- finished basic assembly of the entire robot<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a> <a href="https://twitter.com/suhasasumukh?ref_src=twsrc%5Etfw">@suhasasumukh</a> <a href="https://twitter.com/KechoHayashi?ref_src=twsrc%5Etfw">@KechoHayashi</a> <a href="https://t.co/8usaFhskF0">pic.twitter.com/8usaFhskF0</a></p>&mdash; Surabhi Gupta (@this_is_surabhi) <a href="https://twitter.com/this_is_surabhi/status/1937606928609562981?ref_src=twsrc%5Etfw">June 24, 2025</a></blockquote>
-                    </div>
-                </div>
-            </div>
-            
+            <div class="border-2 rounded-xl border-black dark:border-gray-700 bg-white p-6 h-[600px] overflow-y-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 1</h4>
+<div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-0&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1929623379130437663&amp;lang=en&amp;origin=https%3A%2F%2Fopenraven.tech%2F&amp;sessionId=5e715bf64d3331f41ad36c8ac684d33696032c54&amp;theme=dark&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 351px; height: 547px; display: block; flex-grow: 1;" data-tweet-id="1929623379130437663"></iframe></div> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 2</h4>
+<div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-1" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-1&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1929898535669133580&amp;lang=en&amp;origin=https%3A%2F%2Fopenraven.tech%2F&amp;sessionId=5e715bf64d3331f41ad36c8ac684d33696032c54&amp;theme=dark&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 351px; height: 571px; display: block; flex-grow: 1;" data-tweet-id="1929898535669133580"></iframe></div> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 3</h4>
+<div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-2" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-2&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1930273828674122102&amp;lang=en&amp;origin=https%3A%2F%2Fopenraven.tech%2F&amp;sessionId=5e715bf64d3331f41ad36c8ac684d33696032c54&amp;theme=dark&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 351px; height: 653px; display: block; flex-grow: 1;" data-tweet-id="1930273828674122102"></iframe></div> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 4</h4>
+<div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-3" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-3&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1930639961835151532&amp;lang=en&amp;origin=https%3A%2F%2Fopenraven.tech%2F&amp;sessionId=5e715bf64d3331f41ad36c8ac684d33696032c54&amp;theme=dark&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 351px; height: 533px; display: block; flex-grow: 1;" data-tweet-id="1930639961835151532"></iframe></div> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 5</h4>
+<div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-4" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-4&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1931000519793009022&amp;lang=en&amp;origin=https%3A%2F%2Fopenraven.tech%2F&amp;sessionId=5e715bf64d3331f41ad36c8ac684d33696032c54&amp;theme=dark&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 351px; height: 533px; display: block; flex-grow: 1;" data-tweet-id="1931000519793009022"></iframe></div> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 6</h4>
+<div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-5" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-5&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1931441890303635751&amp;lang=en&amp;origin=https%3A%2F%2Fopenraven.tech%2F&amp;sessionId=5e715bf64d3331f41ad36c8ac684d33696032c54&amp;theme=dark&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 351px; height: 612px; display: block; flex-grow: 1;" data-tweet-id="1931441890303635751"></iframe></div> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 7</h4>
+<div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-6" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-6&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1931791618153300327&amp;lang=en&amp;origin=https%3A%2F%2Fopenraven.tech%2F&amp;sessionId=5e715bf64d3331f41ad36c8ac684d33696032c54&amp;theme=dark&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 351px; height: 602px; display: block; flex-grow: 1;" data-tweet-id="1931791618153300327"></iframe></div> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 8</h4>
+<div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-7" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-7&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1932184953095434326&amp;lang=en&amp;origin=https%3A%2F%2Fopenraven.tech%2F&amp;sessionId=5e715bf64d3331f41ad36c8ac684d33696032c54&amp;theme=dark&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 351px; height: 555px; display: block; flex-grow: 1;" data-tweet-id="1932184953095434326"></iframe></div> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 9</h4>
+<div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-8" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-8&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1932583652820660471&amp;lang=en&amp;origin=https%3A%2F%2Fopenraven.tech%2F&amp;sessionId=5e715bf64d3331f41ad36c8ac684d33696032c54&amp;theme=dark&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 351px; height: 514px; display: block; flex-grow: 1;" data-tweet-id="1932583652820660471"></iframe></div> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 10</h4>
+<div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-9" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-9&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1932823069443428390&amp;lang=en&amp;origin=https%3A%2F%2Fopenraven.tech%2F&amp;sessionId=5e715bf64d3331f41ad36c8ac684d33696032c54&amp;theme=dark&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 351px; height: 514px; display: block; flex-grow: 1;" data-tweet-id="1932823069443428390"></iframe></div> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 11</h4>
+<div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-10" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-10&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1933253997143728393&amp;lang=en&amp;origin=https%3A%2F%2Fopenraven.tech%2F&amp;sessionId=5e715bf64d3331f41ad36c8ac684d33696032c54&amp;theme=dark&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 351px; height: 533px; display: block; flex-grow: 1;" data-tweet-id="1933253997143728393"></iframe></div> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 12</h4>
+<div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-11" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-11&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1933637903470768515&amp;lang=en&amp;origin=https%3A%2F%2Fopenraven.tech%2F&amp;sessionId=5e715bf64d3331f41ad36c8ac684d33696032c54&amp;theme=dark&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 351px; height: 323px; display: block; flex-grow: 1;" data-tweet-id="1933637903470768515"></iframe></div> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 13</h4>
+<div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-12" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-12&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1933949280798261255&amp;lang=en&amp;origin=https%3A%2F%2Fopenraven.tech%2F&amp;sessionId=5e715bf64d3331f41ad36c8ac684d33696032c54&amp;theme=dark&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 351px; height: 743px; display: block; flex-grow: 1;" data-tweet-id="1933949280798261255"></iframe></div> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 14</h4>
+<div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-13" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-13&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1934299804567581021&amp;lang=en&amp;origin=https%3A%2F%2Fopenraven.tech%2F&amp;sessionId=5e715bf64d3331f41ad36c8ac684d33696032c54&amp;theme=dark&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 351px; height: 555px; display: block; flex-grow: 1;" data-tweet-id="1934299804567581021"></iframe></div> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 15</h4>
+<div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-14" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-14&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1934736010895872078&amp;lang=en&amp;origin=https%3A%2F%2Fopenraven.tech%2F&amp;sessionId=5e715bf64d3331f41ad36c8ac684d33696032c54&amp;theme=dark&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 351px; height: 653px; display: block; flex-grow: 1;" data-tweet-id="1934736010895872078"></iframe></div> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 16</h4>
+<div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-15" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-15&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1935052619325878437&amp;lang=en&amp;origin=https%3A%2F%2Fopenraven.tech%2F&amp;sessionId=5e715bf64d3331f41ad36c8ac684d33696032c54&amp;theme=dark&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 351px; height: 653px; display: block; flex-grow: 1;" data-tweet-id="1935052619325878437"></iframe></div> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 17</h4>
+<div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-16" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-16&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1935417798538445142&amp;lang=en&amp;origin=https%3A%2F%2Fopenraven.tech%2F&amp;sessionId=5e715bf64d3331f41ad36c8ac684d33696032c54&amp;theme=dark&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 351px; height: 533px; display: block; flex-grow: 1;" data-tweet-id="1935417798538445142"></iframe></div> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 18</h4>
+<div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-17" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-17&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1935796545712239018&amp;lang=en&amp;origin=https%3A%2F%2Fopenraven.tech%2F&amp;sessionId=5e715bf64d3331f41ad36c8ac684d33696032c54&amp;theme=dark&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 351px; height: 514px; display: block; flex-grow: 1;" data-tweet-id="1935796545712239018"></iframe></div> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 19</h4>
+<div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-18" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-18&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1936211571384213596&amp;lang=en&amp;origin=https%3A%2F%2Fopenraven.tech%2F&amp;sessionId=5e715bf64d3331f41ad36c8ac684d33696032c54&amp;theme=dark&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 351px; height: 666px; display: block; flex-grow: 1;" data-tweet-id="1936211571384213596"></iframe></div> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 20</h4>
+<div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-19" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-19&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1936467875046564027&amp;lang=en&amp;origin=https%3A%2F%2Fopenraven.tech%2F&amp;sessionId=5e715bf64d3331f41ad36c8ac684d33696032c54&amp;theme=dark&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 351px; height: 361px; display: block; flex-grow: 1;" data-tweet-id="1936467875046564027"></iframe></div> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 21</h4>
+<div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-20" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-20&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1936902067425345652&amp;lang=en&amp;origin=https%3A%2F%2Fopenraven.tech%2F&amp;sessionId=5e715bf64d3331f41ad36c8ac684d33696032c54&amp;theme=dark&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 351px; height: 342px; display: block; flex-grow: 1;" data-tweet-id="1936902067425345652"></iframe></div> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 22</h4>
+<div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-21" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-21&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1937270696016548008&amp;lang=en&amp;origin=https%3A%2F%2Fopenraven.tech%2F&amp;sessionId=5e715bf64d3331f41ad36c8ac684d33696032c54&amp;theme=dark&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 351px; height: 495px; display: block; flex-grow: 1;" data-tweet-id="1937270696016548008"></iframe></div> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 23</h4>
+<div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-22" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-22&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=false&amp;id=1937606928609562981&amp;lang=en&amp;origin=https%3A%2F%2Fopenraven.tech%2F&amp;sessionId=5e715bf64d3331f41ad36c8ac684d33696032c54&amp;theme=dark&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 351px; height: 634px; display: block; flex-grow: 1;" data-tweet-id="1937606928609562981"></iframe></div> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 24</h4>
+<blockquote class="twitter-tweet" data-theme="light" data-twitter-extracted-i1751051682307338806="true"><p lang="en" dir="ltr">day 24/28 of building a home assistant robot<br><br>[Update tweet content here]<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a></p>— Surabhi Gupta (@this_is_surabhi) <a href="[INSERT_DAY_24_TWEET_URL_HERE]?ref_src=twsrc%5Etfw">[DATE]</a></blockquote>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 25</h4>
+<blockquote class="twitter-tweet" data-theme="light" data-twitter-extracted-i1751051682307338806="true"><p lang="en" dir="ltr">day 25/28 of building a home assistant robot<br><br>[Update tweet content here]<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a></p>— Surabhi Gupta (@this_is_surabhi) <a href="[INSERT_DAY_25_TWEET_URL_HERE]?ref_src=twsrc%5Etfw">[DATE]</a></blockquote>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 26</h4>
+<blockquote class="twitter-tweet" data-theme="light" data-twitter-extracted-i1751051682307338806="true"><p lang="en" dir="ltr">day 26/28 of building a home assistant robot<br><br>[Update tweet content here]<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a></p>— Surabhi Gupta (@this_is_surabhi) <a href="[INSERT_DAY_26_TWEET_URL_HERE]?ref_src=twsrc%5Etfw">[DATE]</a></blockquote>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-2">DAY 27</h4>
+<blockquote class="twitter-tweet" data-theme="light" data-twitter-extracted-i1751051682307338806="true"><p lang="en" dir="ltr">day 27/28 of building a home assistant robot<br><br>[Update tweet content here]<br><br>cc : <a href="https://twitter.com/localhostIND?ref_src=twsrc%5Etfw">@localhostIND</a></p>— Surabhi Gupta (@this_is_surabhi) <a href="[INSERT_DAY_27_TWEET_URL_HERE]?ref_src=twsrc%5Etfw">[DATE]</a></blockquote>
+</div>
+</div>
+</div>
+
             <!-- Development Phases -->
-            <div>
+            <div class="mt-16">
                 <h3 class="text-3xl font-bold mb-16 text-center">Development Phases</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Level 0 -->
-                    <div class="text-center p-8">
-                        <div class="inline-block bg-raven-black text-white px-4 py-1 rounded text-xs font-medium mb-4">
-                            Current Version
-                        </div>
-                        <h4 class="text-2xl font-bold mb-6">Level 0</h4>
-                        <p class="text-raven-gray leading-relaxed">
-                            Fully teleoperated system. Control via keyboard and leader robot arm. 
-                            No autonomy, no vision—just a solid foundation.
-                        </p>
-                    </div>
-                    
-                    <!-- Level 1 -->
-                    <div class="text-center p-8">
-                        <div class="inline-block bg-raven-gray text-white px-4 py-1 rounded text-xs font-medium mb-4">
-                            Basic Autonomy
-                        </div>
-                        <h4 class="text-2xl font-bold mb-6">Level 1</h4>
-                        <p class="text-raven-gray leading-relaxed">
-                            LiDAR mapping, SLAM navigation, inverse kinematics, 
-                            and basic presets like "grab" or "place."
-                        </p>
-                    </div>
-                    
-                    <!-- Level 2 -->
-                    <div class="text-center p-8">
-                        <div class="inline-block bg-gray-300 text-raven-black px-4 py-1 rounded text-xs font-medium mb-4">
-                            Intelligent Routines
-                        </div>
-                        <h4 class="text-2xl font-bold mb-6">Level 2</h4>
-                        <p class="text-raven-gray leading-relaxed">
-                            Computer vision, object recognition, voice control, 
-                            and memory for complex tasks.
-                        </p>
-                    </div>
-                </div>
+<div class="bg-black text-white border-2 rounded-xl border-black dark:border-white p-6">
+<h4 class="text-2xl font-bold mb-4">LEVEL 0</h4>
+<p class="text-sm uppercase tracking-widest mb-4">CURRENT VERSION</p>
+<p>Fully teleoperated. Control via keyboard and leader robot arm. No autonomy, no vision - just a solid working base.</p>
+</div>
+<div class="bg-white border-2 rounded-xl border-black p-6">
+<h4 class="text-2xl font-bold mb-4">LEVEL 1</h4>
+<p class="text-sm uppercase tracking-widest mb-4">BASIC AUTONOMY</p>
+<p>LiDAR mapping, SLAM navigation, inverse kinematics, and basic presets like "grab" or "place."</p>
+</div>
+<div class="bg-white border-2 rounded-xl border-black p-6">
+<h4 class="text-2xl font-bold mb-4">LEVEL 2</h4>
+<p class="text-sm uppercase tracking-widest mb-4">INTELLIGENT ROUTINES</p>
+<p>Computer vision, object recognition, voice control, and memory for complex tasks.</p>
+</div>
+</div>
             </div>
         </div>
     </section>
 
     <!-- Specs Section -->
-    <section id="specs" class="py-32 px-8 mb-20 md:mb-0">
+    <section id="specs" class="md:py-32 py-16 pb-0 px-8 mb-20 md:mb-0">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-24">
                 <h2 class="text-4xl md:text-6xl font-bold mb-8">Technical Specs</h2>
                 <div class="w-16 h-px bg-raven-black mx-auto"></div>
             </div>
-            
-            <!-- Technical Photos Placeholder -->
-            <div class="bg-raven-light border border-gray-200 rounded-lg p-12 text-center mb-16">
-                <i class="fas fa-camera text-6xl text-raven-gray mb-4"></i>
-                <p class="text-raven-gray">Technical Breakdown Photos Placeholder</p>
-                <p class="text-sm text-gray-400 mt-2">Detailed photos of RAVEN's components and assembly</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-24">
-                <!-- Core Hardware -->
-                <div>
-                    <h3 class="text-xl font-bold mb-8">Core Hardware</h3>
-                    <div class="space-y-4 text-sm">
-                        <div class="flex justify-between py-2 border-b border-gray-100">
-                            <span class="text-raven-gray">Brain</span>
-                            <span class="font-medium">Raspberry Pi 5</span>
-                        </div>
-                        <div class="flex justify-between py-2 border-b border-gray-100">
-                            <span class="text-raven-gray">Controller</span>
-                            <span class="font-medium">Arduino Uno</span>
-                        </div>
-                        <div class="flex justify-between py-2 border-b border-gray-100">
-                            <span class="text-raven-gray">Motor Driver</span>
-                            <span class="font-medium">Cytron Motor Driver</span>
-                        </div>
-                        <div class="flex justify-between py-2 border-b border-gray-100">
-                            <span class="text-raven-gray">Power</span>
-                            <span class="font-medium">12V Rechargeable Battery</span>
-                        </div>
-                        <div class="flex justify-between py-2">
-                            <span class="text-raven-gray">Sensors</span>
-                            <span class="font-medium">Ultrasonic + Camera</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Mechanical -->
-                <div>
-                    <h3 class="text-xl font-bold mb-8">Mechanical</h3>
-                    <div class="space-y-4 text-sm">
-                        <div class="flex justify-between py-2 border-b border-gray-100">
-                            <span class="text-raven-gray">Arm DOF</span>
-                            <span class="font-medium">5 Degrees of Freedom</span>
-                        </div>
-                        <div class="flex justify-between py-2 border-b border-gray-100">
-                            <span class="text-raven-gray">Gripper</span>
-                            <span class="font-medium">Two-finger Claw</span>
-                        </div>
-                        <div class="flex justify-between py-2 border-b border-gray-100">
-                            <span class="text-raven-gray">Mobility</span>
-                            <span class="font-medium">4-Wheel Chassis</span>
-                        </div>
-                        <div class="flex justify-between py-2 border-b border-gray-100">
-                            <span class="text-raven-gray">Material</span>
-                            <span class="font-medium">Powder-coated Aluminum</span>
-                        </div>
-                        <div class="flex justify-between py-2">
-                            <span class="text-raven-gray">Motors</span>
-                            <span class="font-medium">STS3215 Servo Motors</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+<div class="border-2 rounded-xl border-black p-6 bg-white">
+<h3 class="text-2xl font-bold mb-6 flex items-center gap-2"><svg class="svg-inline--fa fa-microchip" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="microchip" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64c-35.3 0-64 28.7-64 64H24c-13.3 0-24 10.7-24 24s10.7 24 24 24H64v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24H64v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24H64c0 35.3 28.7 64 64 64v40c0 13.3 10.7 24 24 24s24-10.7 24-24V448h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24V448h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24V448c35.3 0 64-28.7 64-64h40c13.3 0 24-10.7 24-24s-10.7-24-24-24H448V280h40c13.3 0 24-10.7 24-24s-10.7-24-24-24H448V176h40c13.3 0 24-10.7 24-24s-10.7-24-24-24H448c0-35.3-28.7-64-64-64V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H280V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H176V24zM160 128H352c17.7 0 32 14.3 32 32V352c0 17.7-14.3 32-32 32H160c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32zm192 32H160V352H352V160z"></path></svg><!-- <i class="fas fa-microchip"></i> Font Awesome fontawesome.com -->CORE</h3>
+<div class="space-y-3">
+<div class="flex justify-between border-b pb-2"><span class="font-bold">Brain</span><span>Raspberry Pi 5</span></div>
+<div class="flex justify-between border-b pb-2"><span class="font-bold">Controller</span><span>Arduino Uno</span></div>
+<div class="flex justify-between border-b pb-2"><span class="font-bold">Motor Driver</span><span>Cytron Motor Driver</span></div>
+<div class="flex justify-between border-b pb-2"><span class="font-bold">Power</span><span>12V Rechargeable Battery</span></div>
+<div class="flex justify-between border-b pb-2"><span class="font-bold">Sensors</span><span>Ultrasonic Sensors</span></div>
+<div class="flex justify-between border-b pb-2"><span class="font-bold">Perception</span><span>Camera</span></div>
+</div>
+</div>
+<div class="border-2 rounded-xl border-black p-6 bg-white">
+<h3 class="text-2xl font-bold mb-6 flex items-center gap-2"><svg class="svg-inline--fa fa-robot" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="robot" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" data-fa-i2svg=""><path fill="currentColor" d="M320 0c17.7 0 32 14.3 32 32V96H472c39.8 0 72 32.2 72 72V440c0 39.8-32.2 72-72 72H168c-39.8 0-72-32.2-72-72V168c0-39.8 32.2-72 72-72H288V32c0-17.7 14.3-32 32-32zM208 384c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H208zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H304zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H400zM264 256a40 40 0 1 0 -80 0 40 40 0 1 0 80 0zm152 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80zM48 224H64V416H48c-26.5 0-48-21.5-48-48V272c0-26.5 21.5-48 48-48zm544 0c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H576V224h16z"></path></svg><!-- <i class="fas fa-robot"></i> Font Awesome fontawesome.com -->MECHANICAL</h3>
+<div class="space-y-3">
+<div class="flex justify-between border-b pb-2"><span class="font-bold">Arm DOF</span><span>5 Degrees of Freedom</span></div>
+<div class="flex justify-between border-b pb-2"><span class="font-bold">Gripper</span><span>Two-finger Claw</span></div>
+<div class="flex justify-between border-b pb-2"><span class="font-bold">Mobility</span><span>4-Wheel Chassis</span></div>
+<div class="flex justify-between border-b pb-2"><span class="font-bold">Body Material</span><span>Powder-coated Aluminium</span></div>
+<div class="flex justify-between border-b pb-2"><span class="font-bold">Motors</span><span>STS3215 Servo Motors</span></div>
+<div class="flex justify-between border-b pb-2"><span class="font-bold">Connection</span><span>Wired (Wireless coming)</span></div>
+</div>
+</div>
+</div>
+
             <!-- Software Stack -->
-            <div class="bg-raven-light p-12 rounded text-center">
-                <h3 class="text-xl font-bold mb-8">Software Stack</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
-                    <div>
-                        <h4 class="font-bold mb-4 text-raven-black">Control</h4>
-                        <ul class="space-y-2 text-raven-gray">
-                            <li>LeRobot Python SDK</li>
-                            <li>ROS 2 Navigation</li>
-                            <li>Keyboard Teleoperation</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="font-bold mb-4 text-raven-black">Upcoming</h4>
-                        <ul class="space-y-2 text-raven-gray">
-                            <li>SLAM Mapping</li>
-                            <li>Nav2 Autonomy</li>
-                            <li>Inverse Kinematics</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="font-bold mb-4 text-raven-black">Future</h4>
-                        <ul class="space-y-2 text-raven-gray">
-                            <li>Computer Vision</li>
-                            <li>Voice Control</li>
-                            <li>Memory System</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <div class="bg-white border-2 rounded-xl border-black text-black p-8 mb-16">
+<h3 class="text-3xl font-bold mb-6 flex items-center gap-2"><svg class="svg-inline--fa fa-code" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" data-fa-i2svg=""><path fill="currentColor" d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg><!-- <i class="fas fa-code"></i> Font Awesome fontawesome.com -->SOFTWARE STACK</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div>
+<h4 class="text-xl font-bold mb-4">CONTROL</h4>
+<ul class="space-y-2">
+<li>LeRobot Python SDK</li>
+<li>ROS 2 Navigation</li>
+<li>Keyboard Teleoperation</li>
+</ul>
+</div>
+<div>
+<h4 class="text-xl font-bold mb-4">UPCOMING</h4>
+<ul class="space-y-2">
+<li>SLAM Mapping</li>
+<li>Nav2 Autonomy</li>
+<li>Inverse Kinematics</li>
+</ul>
+</div>
+<div>
+<h4 class="text-xl font-bold mb-4">FUTURE</h4>
+<ul class="space-y-2">
+<li>Computer Vision</li>
+<li>Voice Control</li>
+<li>Memory System</li>
+</ul>
+</div>
+</div>
+</div>
         </div>
     </section>
 
-    <!-- Community Section -->
-    <section id="community" class="py-32 px-8 bg-raven-light mb-20 md:mb-0">
+    <!-- FAQ Section -->
+    <section id="faq" class="md:py-32 py-16 pb-0 px-8 bg-raven-light mb-20 md:mb-0">
         <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-24">
-                <h2 class="text-4xl md:text-6xl font-bold mb-8">Community</h2>
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-6xl font-bold mb-8">FAQs</h2>
                 <div class="w-16 h-px bg-raven-black mx-auto"></div>
             </div>
-            
-            <!-- Community Media Placeholder -->
-            <div class="bg-white border border-gray-200 rounded-lg p-12 text-center mb-16">
-                <i class="fas fa-users text-6xl text-raven-gray mb-4"></i>
-                <p class="text-raven-gray">Community Showcase Placeholder</p>
-                <p class="text-sm text-gray-400 mt-2">Photos/videos of people building and using RAVEN</p>
-            </div>
-            
             <!-- FAQ -->
             <div class="space-y-8 mb-24">
                 <div class="bg-white border border-gray-200 rounded-lg p-8">
                     <h3 class="font-bold mb-4">Is Raven actually open source?</h3>
                     <p class="text-raven-gray leading-relaxed">
-                        Absolutely! All hardware designs, software code, and build instructions 
-                        will be available on GitHub. The goal is to create a community-driven 
+                        Absolutely! All hardware designs, software code, and build instructions
+                        will be available on GitHub. The goal is to create a community-driven
                         platform for home robotics.
                     </p>
                 </div>
-                
+
                 <div class="bg-white border border-gray-200 rounded-lg p-8">
                     <h3 class="font-bold mb-4">How much does it cost to build one?</h3>
                     <p class="text-raven-gray leading-relaxed">
-                        The current BOM is around ₹20,000-40,000 (approximately $250-500 USD). 
+                        The current BOM is around ₹20,000-40,000 (approximately $250-500 USD).
                         We're working on a dev kit that we'll keep you updated about.
                     </p>
                 </div>
-                
+
                 <div class="bg-white border border-gray-200 rounded-lg p-8">
                     <h3 class="font-bold mb-4">Can it actually find my glasses?</h3>
                     <p class="text-raven-gray leading-relaxed">
-                        Not yet! The current Level 0 version is teleoperated only. Computer vision 
+                        Not yet! The current Level 0 version is teleoperated only. Computer vision
                         and object recognition are planned for Level 2.
                     </p>
                 </div>
-                
+
                 <div class="bg-white border border-gray-200 rounded-lg p-8">
                     <h3 class="font-bold mb-4">When will the dev kit be available?</h3>
                     <p class="text-raven-gray leading-relaxed">
-                        We're working on getting to Level 2 before we work on the dev kit. 
+                        We're working on getting to Level 2 before we work on the dev kit.
                         Join our Discord to get updates on availability!
                     </p>
                 </div>
-                
+
                 <div class="bg-white border border-gray-200 rounded-lg p-8">
                     <h3 class="font-bold mb-4">Can I contribute to the project?</h3>
                     <p class="text-raven-gray leading-relaxed">
-                        Yes! Whether you're into hardware, software, or just have ideas, there's room 
+                        Yes! Whether you're into hardware, software, or just have ideas, there's room
                         for contribution. Follow the GitHub repository and join our Discord community.
                     </p>
                 </div>
-                
+
                 <div class="bg-white border border-gray-200 rounded-lg p-8">
                     <h3 class="font-bold mb-4">What programming experience do I need?</h3>
                     <p class="text-raven-gray leading-relaxed">
-                        Basic Python knowledge is helpful for customization. The system uses ROS 2 
+                        Basic Python knowledge is helpful for customization. The system uses ROS 2
                         and the LeRobot SDK, but we're working on making it accessible to non-programmers.
                     </p>
                 </div>
             </div>
-            
+
             <!-- Contact -->
             <div class="text-center">
                 <h3 class="text-2xl font-bold mb-8">Get in Touch</h3>
                 <div class="flex justify-center gap-8 mb-8">
-                    <a href="mailto:surabhi.gupta1617@gmail.com" class="text-gray-400 hover:text-raven-black transition-colors">
+                    <a href="mailto:surabhi.gupta1617@gmail.com"
+                        class="text-gray-400 hover:text-raven-black transition-colors">
                         <i class="fas fa-envelope text-xl"></i>
                     </a>
                     <a href="#" class="text-gray-400 hover:text-raven-black transition-colors">
                         <i class="fab fa-discord text-xl"></i>
                     </a>
-                    <a href="https://x.com/this_is_surabhi" class="text-gray-400 hover:text-raven-black transition-colors">
+                    <a href="https://x.com/this_is_surabhi"
+                        class="text-gray-400 hover:text-raven-black transition-colors">
                         <i class="fab fa-twitter text-xl"></i>
                     </a>
-                    <a href="https://github.com/SurabhiGupta17" class="text-gray-400 hover:text-raven-black transition-colors">
+                    <a href="https://github.com/SurabhiGupta17"
+                        class="text-gray-400 hover:text-raven-black transition-colors">
                         <i class="fab fa-github text-xl"></i>
                     </a>
                 </div>
-                
+
                 <div class="flex flex-col md:flex-row gap-6 justify-center">
-                    <a href="mailto:surabhi.gupta1617@gmail.com" class="bg-raven-black text-white px-8 py-3 rounded font-medium hover:bg-raven-gray transition-colors">
+                    <a href="mailto:surabhi.gupta1617@gmail.com"
+                        class="bg-raven-black text-white px-8 py-3 rounded font-medium hover:bg-raven-gray transition-colors">
                         Email Surabhi
                     </a>
-                    <a href="#" class="text-raven-black border border-raven-black px-8 py-3 rounded font-medium hover:bg-raven-black hover:text-white transition-colors">
+                    <a href="#"
+                        class="text-raven-black border border-raven-black px-8 py-3 rounded font-medium hover:bg-raven-black hover:text-white transition-colors">
                         Join Discord
                     </a>
                 </div>
@@ -569,12 +620,16 @@
     <footer class="py-16 px-8 border-t border-gray-200 mb-20 md:mb-0">
         <div class="max-w-4xl mx-auto text-center">
             <div class="flex items-center justify-center gap-4 mb-8">
-                <h1 class="text-4xl md:text-6xl font-bold mb-8 mt-8 tracking-tight inline-block relative"><i class="fas fa-crow text-3xl absolute -top-5 left-8"></i>RAVEN</h1>
+                <h1 class="text-4xl md:text-6xl font-bold mb-8 mt-8 tracking-tight inline-block relative">
+                    <img src="images/raven-logo.png" alt="RAVEN" class="w-96">
+                    </h1>
             </div>
             <p class="text-raven-gray text-sm">
                 Copyleft 2025 - Share, Adapt, Build.
             </p>
-            <a href="https://layogtima.com/" target="_blank" class="mt-5 text-sm block text-gray-300 transition-all hover:text-gray-400">Built with <i class="fas fa-heart"></i> by @layogtima</a>
+            <a href="https://layogtima.com/" target="_blank"
+                class="mt-5 text-sm block text-gray-300 transition-all hover:text-gray-400">Built with <i
+                    class="fas fa-heart"></i> by @layogtima</a>
         </div>
     </footer>
 
@@ -596,7 +651,7 @@
         });
 
         // Navigation background on scroll
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const nav = document.querySelector('nav');
             if (window.scrollY > 100) {
                 nav.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
@@ -628,4 +683,5 @@
         });
     </script>
 </body>
+
 </html>
